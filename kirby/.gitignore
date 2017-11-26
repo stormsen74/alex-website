@@ -1,7 +1,3 @@
-.idea
-node_modules
-
-
 # System files
 # ------------
 
@@ -11,11 +7,11 @@ Icon
 # Temporary files
 # ---------------
 
-kirby/thumbs/*
+/thumbs/*
 !/thumbs/index.html
 
-kirby/site/cache/*
-!kirby/site/cache/index.html
+/site/cache/*
+!/site/cache/index.html
 
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
@@ -25,10 +21,10 @@ kirby/site/cache/*
 # ---------------
 
 /site/accounts/*
-!kirby/site/accounts/index.html
+!/site/accounts/index.html
 
 # Avatars
 # ---------------
 
-kirby/assets/avatars/*
-!kirby/assets/avatars/index.html
+/assets/avatars/*
+!/assets/avatars/index.html

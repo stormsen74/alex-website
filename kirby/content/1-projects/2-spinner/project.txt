@@ -1,0 +1,23 @@
+Title: DIY-Spinner
+
+----
+
+Year: 2014
+
+----
+
+Text: ... some diy stuff
+
+----
+
+Category: objekte
+
+----
+
+Builder: 
+
+- 
+  image: image_1280_720.jpg
+  title: Spinners
+  description: Some Spinners
+  _fieldset: imageBanner

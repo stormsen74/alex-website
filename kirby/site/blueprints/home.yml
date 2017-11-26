@@ -1,0 +1,20 @@
+title: Home
+
+pages: false
+
+fields:
+  title:
+    label: Title
+    type:  text
+
+  intro:
+    label: Intro
+    type:  textarea
+
+  text:
+    label: Text
+    type:  textarea
+	
+  outro:
+    label: Outro
+    type:  textarea

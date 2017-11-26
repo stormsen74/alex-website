@@ -1,0 +1,23 @@
+Title: Wendelicht
+
+----
+
+Year: 2015
+
+----
+
+Category: projekte
+
+----
+
+Text: Zusammenarbeit mit Max Mustermann
+
+----
+
+Builder: 
+
+- 
+  image: image_1360x903.jpg
+  title: Title
+  description: Description
+  _fieldset: imageBanner
