@@ -10,4 +10,6 @@ z&A#%v*uy?sUzG$YqsBQ@?&aWdpC
 
 [arguments] --no-cache --update $FileName$:../../dist/photoswipe.css
 
-[arguments] --no-cache --update $FileName$:../../../dist/default-skin/default-skin.css
+- default skin
+
+[arguments] --no-cache --update $FileName$:../../default-skin/default-skin.css
