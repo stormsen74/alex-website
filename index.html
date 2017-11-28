@@ -8,6 +8,25 @@
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">
 
+    <!--==========photo-wipe==========-->
+
+    <!-- Core CSS file -->
+    <link rel="stylesheet" href="assets/css/photoswipe/photoswipe.css">
+
+    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+         In the folder of skin CSS file there are also:
+         - .png and .svg icons sprite,
+         - preloader.gif (for browsers that do not support CSS animations) -->
+    <link rel="stylesheet" href="assets/css/photoswipe/default-skin/default-skin.css">
+
+    <!-- Core JS file -->
+    <script src="assets/js/photoswipe/photoswipe.min.js"></script>
+
+    <!-- UI JS file -->
+    <script src="assets/js/photoswipe/photoswipe-ui-default.js"></script>
+
+
+    <!--==========photo-wipe==========-->
 
     <title>... work in progress</title>
 
@@ -34,6 +53,10 @@
             opacity: 1;
         }
 
+        .item {
+            cursor: alias;
+        }
+
         .overlay {
             font-family: 'Ubuntu', sans-serif;
             position: absolute;
@@ -53,14 +76,21 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: #00b311;
-            opacity: .1;
-            display: none;
+            background-color: #363eb3;
+            opacity: .0;
+            display: block;
             color: #fff;
             font-size: 23px;
             text-align: center;
-            cursor: pointer;
         }
+
+        /*.area {*/
+        /*pointer-events: none;*/
+        /*}*/
+
+        /*.area::after {*/
+        /*pointer-events: all;*/
+        /*}*/
 
         .soft-shadow {
             /*https://www.cssmatic.com/box-shadow*/
@@ -79,6 +109,9 @@
     </style>
 </head>
 <body>
+
+<!--==========controls / remove!==========-->
+
 <div class="controls" style="display: none">
     <button type="button" class="control" data-filter="all">All</button>
     <button type="button" class="control" data-filter=".project">Green</button>
@@ -90,13 +123,16 @@
     <button type="button" class="control" data-sort="default:desc">Desc</button>
 </div>
 
+<!--==========menue-bar==========-->
+
 <div class="menue soft-shadow">
     <div style="color: #101010;line-height:50px;text-align: center">MENUE BAR</div>
 </div>
 
+<!--==========mixitup-container==========-->
 
 <div class="container">
-    <div class="mix project soft-shadow">
+    <div class="item mix project soft-shadow">
         <img src="assets/image_1360x903.jpg">
         <div class="overlay soft-inset">
             <div class="description" style="position: relative; width: 100%;">
@@ -113,6 +149,71 @@
     <div class="gap"></div>
     <div class="gap"></div>
     <div class="gap"></div>
+</div>
+
+<!--==========lightbox==========-->
+
+<div id="lightbox" class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display: none">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <div class="pswp__container">
+            <!-- don't modify these 3 pswp__item elements, data is added later on -->
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 <script src="assets/js/mixitup.min.js"></script>
@@ -138,16 +239,20 @@
             images: true
         };
 
-        var image = document.createElement("img");
-//        image.setAttribute("src", "assets/image_1280_720.jpg");
-
         var path = "http://localhost/alex/kirby/content/1-projects/1-wendelicht" + "/" + "image_1360x903.jpg";
+        var image = document.createElement("img");
         image.setAttribute("src", path);
 
+        var area = document.createElement("div");
+        area.classList.add('area');
+        area.info = '_info'
+
+
         item.appendChild(image);
+        item.appendChild(area);
 
 
-        item.classList.add('mix', 'blue', 'soft-shadow');
+        item.classList.add('item', 'mix', 'blue', 'soft-shadow');
         return item;
     }
 
@@ -174,10 +279,73 @@
     loadJSON(function (response) {
         var actual_JSON = JSON.parse(response);
         console.log(actual_JSON)
-//        console.log(actual_JSON[0]['title'])
-//        console.log(actual_JSON[0]['images'])
+        //    console.log(actual_JSON[0]['title'])
+        //    console.log(actual_JSON[0]['images'])
 
     });
+</script>
+
+<script>
+    var openPhotoSwipe = function () {
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        pswpElement.style.display = 'block';
+
+        // build items array
+        var items = [
+            {
+                src: 'assets/image_1280_720.jpg',
+                w: 1280,
+                h: 960,
+                title: '<div>Wendelicht</div><div style="font-size: 1.2rem">Zusammenarbeit mit Max Mustermann</div>',
+            },
+            {
+                src: 'assets/image_1360x903.jpg',
+                w: 1360,
+                h: 903,
+                title: '<div>Spinner</div><div style="font-size: 1.2rem">DIY-Spinner</div>',
+            }
+        ];
+
+        // define options (if needed)
+        var options = {
+            // history & focus options are disabled on CodePen
+            history: false,
+            focus: false,
+
+            showAnimationDuration: 0,
+            hideAnimationDuration: 0
+
+        };
+
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+        var pswp_container = document.querySelectorAll('.pswp__container')[0];
+
+        gallery.listen('beforeChange', function () {
+        });
+
+        gallery.listen('afterChange', function () {
+            pswp_container.style.opacity = .0;
+            setTimeout(function () {
+                pswp_container.style.opacity = 1;
+            }, 500);
+        });
+
+
+        gallery.init();
+    };
+
+    // area-listener
+    var _areas = document.getElementsByClassName('area');
+    for (var i = 0; i < _areas.length; i++) {
+        _areas[i].addEventListener('click', function (event) {
+            console.log(event.target.parentElement.config);
+            openPhotoSwipe()
+        });
+    }
+
+
 </script>
 
 
