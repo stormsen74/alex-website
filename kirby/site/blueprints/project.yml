@@ -21,9 +21,9 @@ fields:
       type: select
       width: 1/3
       options:
-        modelle: Modelle
-        objekte: Objekte
-        projekte: Projekte
+        model: Model
+        object: Object
+        projekt: Projekt
 
   text:
     label: Text

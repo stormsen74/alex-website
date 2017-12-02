@@ -10,7 +10,7 @@ Text: ... some diy stuff
 
 ----
 
-Category: objekte
+Category: object
 
 ----
 

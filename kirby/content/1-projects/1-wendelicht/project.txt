@@ -6,7 +6,7 @@ Year: 2015
 
 ----
 
-Category: projekte
+Category: model
 
 ----
 
@@ -20,4 +20,9 @@ Builder:
   image: image_1360x903.jpg
   title: Title
   description: Description
+  _fieldset: imageBanner
+- 
+  image: image_1280_720.jpg
+  title: New
+  description: dssdsfsfd
   _fieldset: imageBanner
