@@ -42,16 +42,13 @@ function createItem(itemData) {
 
     var item = document.createElement('div');
     item.classList.add('item', 'mix', 'soft-shadow', itemData['category']);
-    item.images = itemData['images']
+    item.images = itemData['images'];
 
     // set first image as item image
     var imagePath = item.images[0][0] + "/" + item.images[0][1];
     var image = document.createElement("img");
     image.setAttribute("src", imagePath);
-    TweenMax.delayedCall(1, function () {
-
-        console.log(image.naturalWidth)
-    })
+    // TweenMax.delayedCall(1, function () {console.log(image.naturalWidth)})
 
     var overlay = document.createElement("div");
     overlay.classList.add('overlay', 'soft-inset');
@@ -68,41 +65,32 @@ function createItem(itemData) {
     var area = document.createElement("div");
     area.classList.add('area');
 
-
     title.innerHTML = itemData['title'];
     text.innerHTML = itemData['text'];
 
-
-    item.config = {
-        images: true
-    };
-
-
-    area.info = '_info'
-
-
-    description.appendChild(title)
-    description.appendChild(text)
-    overlay.appendChild(description)
+    description.appendChild(title);
+    description.appendChild(text);
+    overlay.appendChild(description);
     item.appendChild(image);
     item.appendChild(overlay);
     item.appendChild(area);
-
 
     return item;
 }
 
 function createItems(data) {
 
+    console.log(data)
+
     for (var i = 0; i < data.length; i++) {
         mixer.append(createItem(data[i]), false)
     }
 
-    var gap = document.createElement("div");
-    gap.classList.add('gap');
-    itemContainer.appendChild(gap);
-    itemContainer.appendChild(gap);
-    itemContainer.appendChild(gap);
+    for (var g = 1; g <= 3; g++) {
+        var gap = document.createElement("div");
+        gap.classList.add('gap');
+        itemContainer.appendChild(gap);
+    }
 
     initItemListener()
 }
@@ -155,7 +143,6 @@ var buildGallery = function (_images) {
 
     gallery.listen('afterChange', function () {
         // pswp_container.style.opacity = .0;
-        // TweenMax.to(pswp_container, .5, {opacity: 1, ease: Sine.easeOut})
     });
 
 

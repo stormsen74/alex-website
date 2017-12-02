@@ -23,7 +23,7 @@ fields:
       options:
         model: Model
         object: Object
-        projekt: Projekt
+        project: Project
 
   text:
     label: Text

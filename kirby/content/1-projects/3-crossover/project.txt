@@ -1,0 +1,23 @@
+Title: Crossover
+
+----
+
+Year: 2012
+
+----
+
+Category: project
+
+----
+
+Text: ... some Crossover-Stuff here etc.
+
+----
+
+Builder: 
+
+- 
+  image: dust.png
+  title: Image-Title
+  description: Image-Description
+  _fieldset: imageBanner
