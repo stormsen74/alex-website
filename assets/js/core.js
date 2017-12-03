@@ -80,8 +80,6 @@ function createItem(itemData) {
 
 function createItems(data) {
 
-    console.log(data)
-
     for (var i = 0; i < data.length; i++) {
         mixer.append(createItem(data[i]), false)
     }
@@ -107,13 +105,16 @@ function initItemListener() {
 
 /*--------------------------------------------
  ~ gallery
+
+ https://stackoverflow.com/questions/28214038/photoswipe-4-0-initiate-swipe-to-next-programatically
  --------------------------------------------*/
 
 var gallery_options = {
     history: false,
     focus: false,
     showAnimationDuration: 0,
-    hideAnimationDuration: 0
+    hideAnimationDuration: 0,
+    showHideOpacity: true
 };
 
 var buildGallery = function (_images) {
@@ -127,8 +128,8 @@ var buildGallery = function (_images) {
         var text = '<div>' + _images[i][2] + '</div><div style="font-size: 1.2rem">' + _images[i][3] + '</div>';
         var o = {
             src: _images[i][0] + "/" + _images[i][1],
-            w: 1280,
-            h: 960,
+            w: 0,
+            h: 0,
             title: text
         };
         items.push(o)

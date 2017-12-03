@@ -1,6 +1,10 @@
-@import "mixitup/reset.css";
-@import "mixitup/style.css";
+$max-width: 1920px;
+
+
+//@import "mixitup/reset.css";
+//@import "mixitup/style.css";
 @import "photoswipe/photoswipe.css";
+
 
 
 html,
@@ -29,7 +33,7 @@ body {
   position: -webkit-sticky;
   top: 0;
   z-index: 100;
-  max-width: 1600px;
+  max-width: $max-width;
   margin: 0 auto;
   padding: .3rem;
 }

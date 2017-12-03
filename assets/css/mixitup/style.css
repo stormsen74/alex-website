@@ -95,8 +95,8 @@
 
 .container {
     margin: 0 auto;
-    max-width: 1600px;
-    padding: 1rem;
+    max-width: 1920px;
+    padding: 1.5rem;
     text-align: justify;
     font-size: 0.1px;
 }
@@ -151,7 +151,7 @@
 
 .mix,
 .gap {
-    width: calc(100% / 1 - (((1 - 1) * 1rem) / 1));
+    width: calc(100% / 1 - (((1 - 1) * 1.618rem) / 1));
 }
 
 /* 2 Columns */
@@ -159,7 +159,7 @@
 @media screen and (min-width: 541px) {
     .mix,
     .gap {
-        width: calc(100% / 2 - (((2 - 1) * 1rem) / 2));
+        width: calc(100% / 2 - (((2 - 1) * 1.618rem) / 2));
     }
 }
 
@@ -168,7 +168,7 @@
 @media screen and (min-width: 961px) {
     .mix,
     .gap {
-        width: calc(100% / 3 - (((3 - 1) * 1rem) / 3));
+        width: calc(100% / 3 - (((3 - 1) * 1.618rem) / 3));
     }
 }
 
