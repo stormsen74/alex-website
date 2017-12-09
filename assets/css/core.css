@@ -4,7 +4,7 @@ body {
   height: 100%;
   background: #f4f6f8;
   font-family: 'Ubuntu', sans-serif;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: grayscale; }
 
 *,
@@ -14,15 +14,62 @@ body {
 
 .menue {
   width: 100%;
-  height: fit-content;
+  height: 60px;
+  max-width: 1920px;
   background-color: #f4f6f8;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
   z-index: 100;
-  max-width: 1920px;
   margin: 0 auto;
-  padding: .3rem; }
+  padding: .45rem;
+  padding-left: 1.3rem; }
+
+.select-options {
+  position: absolute;
+  display: inline-block;
+  right: 1.3rem; }
+
+.nav-item {
+  display: inline-block;
+  height: 100%;
+  font-size: 1.1rem;
+  color: #101010;
+  background-color: rgba(135, 221, 154, 0);
+  padding: .8rem .7rem;
+  cursor: pointer; }
+
+.toggle-icon {
+  position: absolute;
+  background: url("../../assets/img/toggle-icon.png");
+  width: 26px;
+  height: 25px;
+  margin-top: 10px;
+  left: -20px;
+  display: none; }
+  @media screen and (max-width: 768px) {
+    .toggle-icon {
+      display: block; } }
+
+.mobile-selection {
+  position: relative;
+  top: -35px;
+  width: 95%;
+  display: none;
+  opacity: 0; }
+
+.nav-item-mobile {
+  display: inline-block;
+  height: 100%;
+  font-size: .8rem;
+  color: #101010;
+  background-color: rgba(135, 221, 154, 0);
+  padding: 1rem .5rem;
+  cursor: pointer; }
+
+@media screen and (max-width: 768px) {
+  .desktop-select {
+    display: none; } }
 
 img {
   position: absolute;

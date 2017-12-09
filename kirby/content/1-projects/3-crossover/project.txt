@@ -21,3 +21,5 @@ Builder:
   title: Image-Title
   description: Image-Description
   _fieldset: imageBanner
+  width: "137"
+  height: "129"

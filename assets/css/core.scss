@@ -1,19 +1,18 @@
 $max-width: 1920px;
-
+$main-background-color: #f4f6f8;
 
 //@import "mixitup/reset.css";
 //@import "mixitup/style.css";
 @import "photoswipe/photoswipe.css";
 
-
-
 html,
 body {
   height: 100%;
-  background: #f4f6f8;
+  background: $main-background-color;
   font-family: 'Ubuntu', sans-serif;
 
-  -webkit-font-smoothing: antialiased;
+  //-webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -23,19 +22,73 @@ body {
   box-sizing: border-box;
 }
 
-
-
 .menue {
   width: 100%;
-  height: fit-content;
-  background-color: #f4f6f8;
+  height: 60px;
+  //height: 95px;
+  max-width: $max-width;
+  background-color: $main-background-color;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
   z-index: 100;
-  max-width: $max-width;
   margin: 0 auto;
-  padding: .3rem;
+  padding: .45rem;
+  padding-left: 1.3rem;
+}
+
+.select-options {
+  position: absolute;
+  display: inline-block;
+  right: 1.3rem;
+}
+
+.nav-item {
+  display: inline-block;
+  height: 100%;
+  font-size: 1.1rem;
+  color: #101010;
+  background-color: rgba(135, 221, 154, 0.0);
+  padding: .8rem .7rem;
+  cursor: pointer;
+}
+
+.toggle-icon {
+  position: absolute;
+  background: url('../../assets/img/toggle-icon.png');
+  width: 26px;
+  height: 25px;
+  margin-top: 10px;
+  left: -20px;
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}
+
+.mobile-selection {
+  position: relative;
+  top: -35px;
+  width: 95%;
+  display: none;
+  opacity: 0;
+}
+
+.nav-item-mobile {
+  display: inline-block;
+  height: 100%;
+  font-size: .8rem;
+  color: #101010;
+  background-color: rgba(135, 221, 154, 0.0);
+  padding: 1rem .5rem;
+  cursor: pointer;
+}
+
+.desktop-select {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 img {

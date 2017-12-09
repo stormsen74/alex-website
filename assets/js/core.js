@@ -1,5 +1,7 @@
 console.log('core!')
 
+var $version = .3;
+
 // mixitup
 
 var itemContainer = document.querySelector('.container');
@@ -123,13 +125,15 @@ var buildGallery = function (_images) {
 
     pswpElement.style.display = 'block';
 
+
     var items = [];
     for (var i = 0; i < _images.length; i++) {
-        var text = '<div>' + _images[i][2] + '</div><div style="font-size: 1.2rem">' + _images[i][3] + '</div>';
+        var text = '<div>' + _images[i][3] + '</div><div style="font-size: 1.2rem">' + _images[i][4] + '</div>';
+        console.log('-', _images[i][2][0], _images[i][2][1]);
         var o = {
             src: _images[i][0] + "/" + _images[i][1],
-            w: 0,
-            h: 0,
+            w: _images[i][2][0],
+            h: _images[i][2][1],
             title: text
         };
         items.push(o)
@@ -149,6 +153,46 @@ var buildGallery = function (_images) {
 
     gallery.init();
 };
+
+
+/*--------------------------------------------
+ ~
+ --------------------------------------------*/
+window.addEventListener("resize", onResize);
+
+
+var menueBar = document.getElementById('menueBar');
+var mobileSelection = document.getElementById('mobileSelection');
+var toggleIcon = document.getElementById('toggleIcon');
+
+var isMobileSelect = false;
+toggleIcon.addEventListener('click', onMobileSelectToggle);
+
+
+function onResize(e) {
+    if (window.innerWidth > 768 && isMobileSelect) {
+        hideMobileSelect();
+    }
+}
+
+
+function onMobileSelectToggle(e) {
+    !isMobileSelect ? showMobileSelect() : hideMobileSelect();
+}
+
+function showMobileSelect() {
+    isMobileSelect = true;
+    TweenMax.to(menueBar, .3, {height: 95, ease: Expo.easeOut});
+    TweenMax.to(mobileSelection, .3, {delay: .1, display: 'block', opacity: 1, ease: Sine.easeOut});
+    TweenMax.set(toggleIcon, {backgroundPosition: '-26px 0px'});
+}
+
+function hideMobileSelect() {
+    isMobileSelect = false;
+    TweenMax.to(menueBar, .2, {height: 60, ease: Sine.easeOut});
+    TweenMax.set(mobileSelection, {display: 'none', opacity: 0});
+    TweenMax.set(toggleIcon, {backgroundPosition: '0px 0px'});
+}
 
 
 /*--------------------------------------------

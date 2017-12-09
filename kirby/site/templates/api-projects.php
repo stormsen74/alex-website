@@ -15,6 +15,7 @@ $images = array();
         array_push($images, array(
             $project->contentUrl(),
             $section->image()->value(),
+            [$section->width()->value(),$section->height()->value()],
             $section->title()->value(),
             $section->description()->value()
          ));

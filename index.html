@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link href="assets/css/mixitup/reset.css" rel="stylesheet"/>
     <link href="assets/css/mixitup/style.css" rel="stylesheet"/>
@@ -50,22 +51,45 @@
 
 <!--==========menue-bar==========-->
 
-<div class="menue soft-shadow">
-    <div style="color: #101010;line-height:50px;text-align: center">MENUE BAR</div>
+<div id="menueBar" class="menue soft-shadow">
+
+    <div class="nav-item">Alexander Joly</div>
+
+    <div class="select-options">
+        <div class="nav-item desktop-select">Übersicht</div>
+        <div class="nav-item desktop-select">Modelle</div>
+        <div class="nav-item desktop-select">Objekte</div>
+        <div class="nav-item desktop-select">Projekte</div>
+        <div id="toggleIcon" class="nav-item toggle-icon"></div>
+        <div class="nav-item" style="margin-left: 1.5rem; border: 1px solid black">About</div>
+    </div>
+
+    <div id="mobileSelection" class="mobile-selection">
+        <div class="select-options-mobile" style="text-align: center">
+            <div class="nav-item-mobile">Übersicht</div>
+            <div class="nav-item-mobile">Modelle</div>
+            <div class="nav-item-mobile">Objekte</div>
+            <div class="nav-item-mobile">Projekte</div>
+        </div>
+    </div>
+
+</div>
+
+
 </div>
 
 <!--==========mixitup-container==========-->
 
 <div class="container">
     <!--<div class="item mix project soft-shadow">-->
-        <!--<img src="assets/image_1360x903.jpg">-->
-        <!--<div class="overlay soft-inset">-->
-            <!--<div class="description">-->
-                <!--<div class="item-title">Wendelicht</div>-->
-                <!--<div class="item-text">Zusammenarbeit mit Max Mustermann</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="area"></div>-->
+    <!--<img src="assets/image_1360x903.jpg">-->
+    <!--<div class="overlay soft-inset">-->
+    <!--<div class="description">-->
+    <!--<div class="item-title">Wendelicht</div>-->
+    <!--<div class="item-text">Zusammenarbeit mit Max Mustermann</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="area"></div>-->
     <!--</div>-->
 
     <!--added in core.js!-->
@@ -142,8 +166,10 @@
 <!--==========core-js==========-->
 
 
-
 <script src="assets/js/core.js"></script>
+<script type="text/javascript">
+    console.log($version)
+</script>
 
 </body>
 </html>

@@ -21,8 +21,12 @@ Builder:
   title: Title
   description: Description
   _fieldset: imageBanner
+  width: "1920"
+  height: "1080"
 - 
   image: image_1280_720.jpg
   title: New
   description: dssdsfsfd
   _fieldset: imageBanner
+  width: "1920"
+  height: "1080"

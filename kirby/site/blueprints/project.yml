@@ -41,6 +41,16 @@ fields:
                 image:
                   label: Image
                   type: image
+                width:
+                  width: 1/4
+                  label: width
+                  type: text
+                  default: 1920
+                height:
+                  width: 1/4
+                  label: height
+                  type: text
+                  default: 1080
                 title:
                   label: Title
                   type: text

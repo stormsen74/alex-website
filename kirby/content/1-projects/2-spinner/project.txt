@@ -21,3 +21,5 @@ Builder:
   title: Spinners
   description: Some Spinners
   _fieldset: imageBanner
+  width: "1920"
+  height: "1080"
