@@ -36,40 +36,29 @@
 </head>
 <body>
 
-<!--==========controls / remove!==========-->
-
-<div class="controls" style="display: block">
-    <button type="button" class="control" data-filter="all">All</button>
-    <button type="button" class="control" data-filter=".project">Green</button>
-    <button type="button" class="control" data-filter=".object">Blue</button>
-    <button type="button" class="control" data-filter=".model">Pink</button>
-    <button type="button" class="control" data-filter="none">None</button>
-
-    <button type="button" class="control" data-sort="default:asc">Asc</button>
-    <button type="button" class="control" data-sort="default:desc">Desc</button>
-</div>
-
 <!--==========menue-bar==========-->
 
 <div id="menueBar" class="menue soft-shadow">
 
-    <div class="nav-item">Alexander Joly</div>
+    <div style="position: absolute;display: inline-block;">
+        <div id="kontakt" class="nav-item">Kontakt</div>
+    </div>
 
     <div class="select-options">
-        <div class="nav-item desktop-select">Übersicht</div>
-        <div class="nav-item desktop-select">Modelle</div>
-        <div class="nav-item desktop-select">Objekte</div>
-        <div class="nav-item desktop-select">Projekte</div>
+        <div class="nav-item desktop-select active" data-type="all">Übersicht</div>
+        <div class="nav-item desktop-select" data-type=".model">Modelle</div>
+        <div class="nav-item desktop-select" data-type=".object">Objekte</div>
+        <div class="nav-item desktop-select" data-type=".project">Projekte</div>
         <div id="toggleIcon" class="nav-item toggle-icon"></div>
-        <div class="nav-item" style="margin-left: 1.5rem; border: 1px solid black">About</div>
+        <div class="nav-item" style="margin-left: 1.5rem; border: 1px solid rgba(0,0,0,.0)">About</div>
     </div>
 
     <div id="mobileSelection" class="mobile-selection">
         <div class="select-options-mobile" style="text-align: center">
-            <div class="nav-item-mobile">Übersicht</div>
-            <div class="nav-item-mobile">Modelle</div>
-            <div class="nav-item-mobile">Objekte</div>
-            <div class="nav-item-mobile">Projekte</div>
+            <div class="nav-item-mobile active" data-type="all">Übersicht</div>
+            <div class="nav-item-mobile" data-type=".model">Modelle</div>
+            <div class="nav-item-mobile" data-type=".object">Objekte</div>
+            <div class="nav-item-mobile" data-type=".project">Projekte</div>
         </div>
     </div>
 
@@ -90,6 +79,23 @@
     <!--</div>-->
     <!--</div>-->
     <!--<div class="area"></div>-->
+    <!--</div>-->
+
+    <!--<div id="content-kontakt" class="mix content">-->
+    <!--<div class="content-box">-->
+    <!--<div>-->
+    <!--Alexander Joly<br/>-->
+    <!--Schadesweg 27a<br/>-->
+    <!--20537 Hamburg<br/>-->
+    <!--<br/>-->
+    <!--mail@alexanderjoly.de<br/>-->
+    <!--+49 178 873 0876<br/>-->
+    <!--<br/>-->
+    <!--Alexander Joly arbeitet im Feld von ea nonsequia nis eost ani sa dolorio ribusandis sed que eum eume ne simolo tota conest utet et aut int esciateni ut qui comnis nis esequis siminti nvellab idi bea volupta de volupta spercil inienda eptinul paruptatio teniend ucipsundam rehenis ciisimu sdandusdam nos simenda ndipsae. Itatumq uiatusam voluptatur? Urernatur mil ea core sitaquntibusant ant vendend aecus, in ea reratem. Iquas es iunt, solupta tibusda nihitist magnatibus voluptaque-->
+    <!--non nos est minis moloreri optat omnis qui iurestiur anto to qui te aut maximporaes preiunt occab.-->
+    <!--</div>-->
+    <!--<div id="close-kontakt" class="close-button"></div>-->
+    <!--</div>-->
     <!--</div>-->
 
     <!--added in core.js!-->

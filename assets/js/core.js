@@ -5,7 +5,15 @@ var $version = .3;
 // mixitup
 
 var itemContainer = document.querySelector('.container');
-var mixer = mixitup(itemContainer);
+var mixerConfig = {
+    animation: {
+        duration: 250,
+        nudge: false,
+        reverseOut: false,
+        effects: "fade scale(0.01)"
+    }
+}
+var mixer = mixitup(itemContainer, mixerConfig);
 
 // photoswipe
 
@@ -80,6 +88,31 @@ function createItem(itemData) {
     return item;
 }
 
+
+function createKontakt() {
+    var content = document.createElement('div');
+    content.classList.add('mix', 'content');
+    content.id = 'content-kontakt';
+
+    var contentBox = document.createElement('div');
+    contentBox.classList.add('content-box');
+
+    var textArea = document.createElement('div');
+    textArea.innerHTML = 'Alexander Joly<br/>Schadesweg 27a<br/>20537 Hamburg<br/> <br/>mail@alexanderjoly.de<br/> +49 178 873 0876<br/> <br/>Alexander Joly arbeitet im Feld von ea nonsequia nis eost ani sa dolorio ribusandis sed que eum eume ne simolo tota conest utet et aut int esciateni ut qui comnis nis esequis siminti nvellab idi bea volupta de volupta spercil inienda eptinul paruptatio teniend ucipsundam rehenis ciisimu sdandusdam nos simenda ndipsae. Itatumq uiatusam voluptatur? Urernatur mil ea core sitaquntibusant ant vendend aecus, in ea reratem. Iquas es iunt, solupta tibusda nihitist magnatibus voluptaquenon nos est minis moloreri optat omnis qui iurestiur anto to qui te aut maximporaes preiunt occab.'
+
+    var closeButton = document.createElement('div');
+    closeButton.classList.add('close-button');
+    closeButton.id = 'close-kontakt';
+    closeButton.addEventListener('click', onCloseKontakt);
+
+    contentBox.appendChild(textArea);
+    contentBox.appendChild(closeButton);
+    content.appendChild(contentBox)
+
+    return content
+
+}
+
 function createItems(data) {
 
     for (var i = 0; i < data.length; i++) {
@@ -91,6 +124,7 @@ function createItems(data) {
         gap.classList.add('gap');
         itemContainer.appendChild(gap);
     }
+
 
     initItemListener()
 }
@@ -158,8 +192,10 @@ var buildGallery = function (_images) {
 /*--------------------------------------------
  ~
  --------------------------------------------*/
+
 window.addEventListener("resize", onResize);
 
+// NAV-TOGGLE
 
 var menueBar = document.getElementById('menueBar');
 var mobileSelection = document.getElementById('mobileSelection');
@@ -174,7 +210,6 @@ function onResize(e) {
         hideMobileSelect();
     }
 }
-
 
 function onMobileSelectToggle(e) {
     !isMobileSelect ? showMobileSelect() : hideMobileSelect();
@@ -194,11 +229,131 @@ function hideMobileSelect() {
     TweenMax.set(toggleIcon, {backgroundPosition: '0px 0px'});
 }
 
+// SELECT-NAVIGATION
+
+var desktopSelectButtons = document.getElementsByClassName('desktop-select');
+var mobileSelectButtons = document.getElementsByClassName('nav-item-mobile');
+var currentSelector = 'all';
+
+for (var i = 0; i < desktopSelectButtons.length; i++) {
+    desktopSelectButtons[i].addEventListener('click', onClickDesktopSelect);
+    desktopSelectButtons[i].addEventListener('mouseover', onHoverDesktopSelect);
+    desktopSelectButtons[i].addEventListener('mouseout', onHoverOutDesktopSelect);
+
+    mobileSelectButtons[i].addEventListener('click', onClickMobileSelect);
+
+    desktopSelectButtons[i].id = mobileSelectButtons[i].id = i;
+}
+
+
+function onHoverDesktopSelect(e) {
+    if (!e.target.classList.contains('active')) {
+        TweenMax.to(e.target, .4, {opacity: 1, ease: Cubic.easeOut})
+    }
+}
+
+function onHoverOutDesktopSelect(e) {
+    if (!e.target.classList.contains('active')) {
+        TweenMax.to(e.target, .5, {opacity: .5, ease: Sine.easeOut})
+    }
+}
+
+function setPassive() {
+    for (var i = 0; i < desktopSelectButtons.length; i++) {
+        TweenMax.set(desktopSelectButtons[i], {opacity: .5})
+        desktopSelectButtons[i].classList.remove('active');
+        mobileSelectButtons[i].classList.remove('active');
+    }
+}
+
+function onClickDesktopSelect(e) {
+    if (!e.target.classList.contains('active')) {
+        setPassive();
+        e.target.classList.add('active');
+        TweenMax.to(e.target, .4, {opacity: 1, ease: Cubic.easeOut});
+        mobileSelectButtons[e.target.id].classList.add('active');
+
+        var selector = e.target.dataset.type;
+        filterItems(selector);
+    }
+}
+
+function onClickMobileSelect(e) {
+    if (!e.target.classList.contains('active')) {
+        setPassive();
+        e.target.classList.add('active');
+        desktopSelectButtons[e.target.id].classList.add('active');
+        TweenMax.to(desktopSelectButtons[e.target.id], .4, {opacity: 1, ease: Cubic.easeOut});
+
+        var selector = e.target.dataset.type;
+        filterItems(selector);
+    }
+}
+
+function filterItems(selector, contentID) {
+    contentID = contentID || null;
+    if (contentID == null) {
+        currentSelector = selector;
+        if (document.getElementById('content-kontakt')) {
+            kontaktButton.classList.remove('active');
+            kontaktButton.classList.remove('hover');
+            mixer.remove(document.getElementById('content-kontakt'), false);
+        }
+    }
+    mixer.filter(selector).then(function (state) {
+        // console.log('ready', state)
+        if (contentID != null) {
+            if (contentID == 'kontakt') {
+                kontaktButton.classList.add('active');
+                mixer.append(createKontakt(), false);
+                TweenMax.to(document.getElementById('content-kontakt'), .5, {display: 'block', opacity: 1, ease: Sine.easeOut})
+            }
+        }
+    });
+}
+
+// CONTENT
+
+var kontaktButton = document.getElementById('kontakt');
+kontaktButton.addEventListener('mouseover', onHoverKontakt);
+kontaktButton.addEventListener('mouseout', onHoverOutKontakt);
+kontaktButton.addEventListener('click', onClickKontakt);
+
+function onHoverKontakt(e) {
+    if (!e.target.classList.contains('active')) {
+        TweenMax.to(e.target, .3, {className: "+=hover", ease: Sine.easeOut})
+    }
+}
+
+function onHoverOutKontakt(e) {
+    if (!e.target.classList.contains('active')) {
+        TweenMax.to(e.target, .4, {className: "-=hover", ease: Cubic.easeOut})
+    }
+}
+
+
+function onClickKontakt(e) {
+    if (!e.target.classList.contains('active')) {
+        kontaktButton.classList.remove('hover');
+        filterItems('none', 'kontakt')
+    }
+}
+
+function onCloseKontakt() {
+    TweenMax.to(document.getElementById('content-kontakt'), .3, {
+        display: 'none', opacity: 0, ease: Cubic.easeIn, onComplete: function () {
+            kontaktButton.classList.remove('active');
+            kontaktButton.classList.remove('hover');
+            mixer.remove(document.getElementById('content-kontakt'), false);
+            filterItems(currentSelector);
+        }
+    })
+}
+
 
 /*--------------------------------------------
  ~ init
  --------------------------------------------*/
 
 getData(onRecieve);
-
 

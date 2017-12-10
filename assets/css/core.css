@@ -39,6 +39,21 @@ body {
   padding: .8rem .7rem;
   cursor: pointer; }
 
+#kontakt {
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0); }
+  #kontakt.hover {
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
+  #kontakt.active {
+    cursor: default;
+    border: 1px dashed rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
+
 .toggle-icon {
   position: absolute;
   background: url("../../assets/img/toggle-icon.png");
@@ -53,7 +68,7 @@ body {
 
 .mobile-selection {
   position: relative;
-  top: -35px;
+  top: 45px;
   width: 95%;
   display: none;
   opacity: 0; }
@@ -65,11 +80,21 @@ body {
   color: #101010;
   background-color: rgba(135, 221, 154, 0);
   padding: 1rem .5rem;
+  opacity: .5;
   cursor: pointer; }
+  .nav-item-mobile.active {
+    opacity: 1;
+    cursor: default; }
 
-@media screen and (max-width: 768px) {
-  .desktop-select {
-    display: none; } }
+.desktop-select {
+  opacity: .5;
+  cursor: pointer; }
+  .desktop-select.active {
+    opacity: 1;
+    cursor: default; }
+  @media screen and (max-width: 768px) {
+    .desktop-select {
+      display: none; } }
 
 img {
   position: absolute;
@@ -79,7 +104,7 @@ img {
   opacity: 1; }
 
 .item {
-  cursor: alias; }
+  cursor: pointer; }
 
 .overlay {
   font-family: 'Ubuntu', sans-serif;
@@ -89,10 +114,37 @@ img {
   height: auto;
   background-color: #fff;
   opacity: .65;
-  color: #000;
+  color: #101010;
   font-size: 23px;
   text-align: left;
   padding: 10px; }
+
+#content-kontakt {
+  display: none;
+  opacity: 0; }
+
+.content-box {
+  font-family: 'Ubuntu', sans-serif;
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 768px;
+  height: auto;
+  background-color: #f4f6f8;
+  color: #101010;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  text-align: left;
+  padding: 10px; }
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url("../../assets/img/close-icon.png");
+  width: 34px;
+  height: 34px;
+  cursor: pointer; }
 
 .description {
   position: relative;
@@ -128,5 +180,10 @@ img {
   -webkit-box-shadow: inset 0px 0px 44px 0px rgba(0, 0, 0, 0.23);
   -moz-box-shadow: inset 0px 0px 44px 0px rgba(0, 0, 0, 0.23);
   box-shadow: inset 0px 0px 44px 0px rgba(0, 0, 0, 0.23); }
+
+.button-select {
+  -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
+  box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
 
 /*# sourceMappingURL=core.css.map */

@@ -1,5 +1,6 @@
 $max-width: 1920px;
 $main-background-color: #f4f6f8;
+$main-text-color: #101010;
 
 //@import "mixitup/reset.css";
 //@import "mixitup/style.css";
@@ -47,10 +48,36 @@ body {
   display: inline-block;
   height: 100%;
   font-size: 1.1rem;
-  color: #101010;
+  color: $main-text-color;
   background-color: rgba(135, 221, 154, 0.0);
   padding: .8rem .7rem;
   cursor: pointer;
+
+}
+
+#kontakt {
+
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, .0);
+
+  &.hover {
+    border: 1px dashed rgba(0, 0, 0, .3);
+
+    $blur-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+  }
+
+  &.active {
+    cursor: default;
+    border: 1px dashed rgba(0, 0, 0, .6);
+
+    $blur-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+  }
 }
 
 .toggle-icon {
@@ -69,7 +96,7 @@ body {
 
 .mobile-selection {
   position: relative;
-  top: -35px;
+  top: 45px;
   width: 95%;
   display: none;
   opacity: 0;
@@ -79,13 +106,28 @@ body {
   display: inline-block;
   height: 100%;
   font-size: .8rem;
-  color: #101010;
+  color: $main-text-color;
   background-color: rgba(135, 221, 154, 0.0);
   padding: 1rem .5rem;
+
+  opacity: .5;
   cursor: pointer;
+
+  &.active {
+    opacity: 1;
+    cursor: default;
+  }
 }
 
 .desktop-select {
+  opacity: .5;
+  cursor: pointer;
+
+  &.active {
+    opacity: 1;
+    cursor: default;
+  }
+
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -100,7 +142,7 @@ img {
 }
 
 .item {
-  cursor: alias;
+  cursor: pointer;
 }
 
 .overlay {
@@ -111,10 +153,41 @@ img {
   height: auto;
   background-color: #fff;
   opacity: .65;
-  color: #000;
+  color: $main-text-color;
   font-size: 23px;
   text-align: left;
   padding: 10px;
+}
+
+#content-kontakt {
+  display: none;
+  opacity: 0;
+}
+
+.content-box {
+  font-family: 'Ubuntu', sans-serif;
+  position: relative;
+  margin: 0 auto;
+  //width: 100%;
+  width: fit-content;
+  max-width: 768px;
+  height: auto;
+  background-color: $main-background-color;
+  color: $main-text-color;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  text-align: left;
+  padding: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url("../../assets/img/close-icon.png");
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
 }
 
 .description {
@@ -157,4 +230,12 @@ img {
   -webkit-box-shadow: inset 0px 0px 44px 0px rgba(0, 0, 0, 0.23);
   -moz-box-shadow: inset 0px 0px 44px 0px rgba(0, 0, 0, 0.23);
   box-shadow: inset 0px 0px 44px 0px rgba(0, 0, 0, 0.23);
+}
+
+$blur-radius: 10px;
+
+.button-select {
+  -webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+  box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
 }

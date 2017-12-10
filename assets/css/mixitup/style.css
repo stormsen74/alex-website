@@ -1,95 +1,5 @@
 
 
-/* Controls
----------------------------------------------------------------------- */
-
-.controls {
-    padding: 1rem;
-    background: #333;
-    font-size: 0.1px;
-}
-
-.control {
-    position: relative;
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    background: #444;
-    cursor: pointer;
-    font-size: 0.1px;
-    color: #f4f6f8;
-    transition: background 150ms;
-}
-
-.control:hover {
-    background: #3f3f3f;
-}
-
-.control[data-filter]:after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: calc(50% - 6px);
-    left: calc(50% - 6px);
-    border: 2px solid currentColor;
-    border-radius: 2px;
-    background: currentColor;
-    transition: background-color 150ms, border-color 150ms;
-}
-
-.control[data-sort]:after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid;
-    border-left: 2px solid;
-    top: calc(50% - 6px);
-    left: calc(50% - 6px);
-    transform: translateY(1px) rotate(45deg);
-}
-
-.control[data-sort*=":desc"]:after {
-    transform: translateY(-4px) rotate(-135deg);
-}
-
-.mixitup-control-active {
-    background: #393939;
-}
-
-.mixitup-control-active[data-filter]:after {
-    background: transparent;
-}
-
-.control:first-of-type {
-    border-radius: 3px 0 0 3px;
-}
-
-.control:last-of-type {
-    border-radius: 0 3px 3px 0;
-}
-
-.control[data-filter] + .control[data-sort] {
-    margin-left: .75rem;
-}
-
-.control[data-filter=".project"] {
-    color: #91e6c7;
-}
-
-.control[data-filter=".model"] {
-    color: #5ecdde;
-}
-
-.control[data-filter=".object"] {
-    color: #d595aa;
-}
-
-.control[data-filter="none"] {
-    color: #2f2f2f;
-}
-
 /* Container
 ---------------------------------------------------------------------- */
 
@@ -118,9 +28,9 @@
 
 .mix {
     background: #f4f6f8;
-    border-top: .1rem solid currentColor;
+    /*border-top: .1rem solid currentColor;*/
     border-radius: 2px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
     overflow: hidden;
 }
@@ -133,19 +43,32 @@
 }
 
 .mix.project {
-    color: #91e6c7;
+    color: #101010;
 }
 
 .mix.object {
-    color: #d595aa;
+    color: #8f0820;
 }
 
 .mix.model {
-    color: #5ecdde;
+    color: #de7226;
 }
 
 /* Grid Breakpoints
 ---------------------------------------------------------------------- */
+
+.content {
+    width: 100% !important;
+    /*outline: 1px solid #3E5C9A;*/
+    padding-top: 0 !important;
+    overflow: visible;
+}
+
+.content:before {
+    display: inline-block;
+    padding-top: 0;
+}
+
 
 /* 1 Columns */
 
