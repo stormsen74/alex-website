@@ -12,7 +12,7 @@ body {
   background: $main-background-color;
   font-family: 'Ubuntu', sans-serif;
 
-  //-webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -193,6 +193,7 @@ img {
 .description {
   position: relative;
   width: 100%;
+  text-align: center;
 }
 
 .item-title {

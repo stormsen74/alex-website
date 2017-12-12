@@ -79,7 +79,7 @@
 
 /* 2 Columns */
 
-@media screen and (min-width: 541px) {
+@media screen and (min-width: 769px) {
     .mix,
     .gap {
         width: calc(100% / 2 - (((2 - 1) * 1.618rem) / 2));
