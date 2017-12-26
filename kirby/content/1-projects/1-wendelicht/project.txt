@@ -10,7 +10,7 @@ Category: model
 
 ----
 
-Text: Zusammenarbeit mit Max Mustermann
+Text: In Zusammenarbeit mit Paul Schatz Stiftung Basel
 
 ----
 
@@ -18,15 +18,22 @@ Builder:
 
 - 
   image: image_1360x903.jpg
-  title: Title
-  description: Description
+  title: Wendelicht
+  description: Funktionsmodell des Federmechanismus
   _fieldset: imageBanner
   width: "1920"
   height: "1080"
 - 
-  image: image_1280_720.jpg
-  title: New
-  description: dssdsfsfd
-  _fieldset: imageBanner
+  image: img_0625.jpg
   width: "1920"
   height: "1080"
+  title: Prototyp
+  description: liegt auf dem Tisch
+  _fieldset: imageBanner
+- 
+  image: dsc_1119-low.jpg
+  width: "1920"
+  height: "1080"
+  title: Wendelicht
+  description: Leuchtenkörper
+  _fieldset: imageBanner

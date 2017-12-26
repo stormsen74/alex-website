@@ -3,18 +3,23 @@ title: Kontakt
 pages: false
 
 fields:
-  title:
-    label: Title
+  adress:
+    label: Adresse
+    type:  textarea
+
+  mail:
+    label: Mail
+    type:  text
+    validate: email
+
+  phone:
+    label: Telefon
     type:  text
 
-  intro:
-    label: Intro
-    type:  textarea
+  adress_work:
+      label: Adresse-Werkstatt
+      type:  textarea
 
-  text:
-    label: Text
-    type:  textarea
-
-  outro:
-    label: Outro
-    type:  textarea
+  url_work:
+      label: URL-Werkstatt
+      type:  text

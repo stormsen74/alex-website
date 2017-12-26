@@ -1,0 +1,12 @@
+title: About
+
+pages: false
+
+fields:
+  text:
+    label: Text
+    type:  textarea
+
+  image:
+    label: Image
+    type:  image

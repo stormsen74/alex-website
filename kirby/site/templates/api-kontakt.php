@@ -4,11 +4,13 @@
     $json = array();
 
 //    echo $page->parent()->title();
-//    echo $page->parent()->text()
 
     $json[] = array(
-        'title' => (string)$page->parent()->title(),
-        'text' => (string)$page->parent()->text()
+        'adress' => (string)$page->parent()->adress(),
+        'mail' => (string)$page->parent()->mail(),
+        'phone' => (string)$page->parent()->phone(),
+        'adress_work' => (string)$page->parent()->adress_work(),
+        'url_work' => (string)$page->parent()->url_work()
       );
 
      echo json_encode($json);

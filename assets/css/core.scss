@@ -1,6 +1,7 @@
 $max-width: 1920px;
-$main-background-color: #f4f6f8;
+$main-background-color: #f7f7f7;
 $main-text-color: #101010;
+$mobile-navigation-switch: 600px;
 
 //@import "mixitup/reset.css";
 //@import "mixitup/style.css";
@@ -10,7 +11,9 @@ html,
 body {
   height: 100%;
   background: $main-background-color;
-  font-family: 'Ubuntu', sans-serif;
+  //font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 500;
 
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: auto;
@@ -23,6 +26,7 @@ body {
   box-sizing: border-box;
 }
 
+
 .menue {
   width: 100%;
   height: 60px;
@@ -32,10 +36,12 @@ body {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 100;
+  z-index: 3000;
   margin: 0 auto;
-  padding: .45rem;
+  padding: .32rem;
   padding-left: 1.3rem;
+
+  border-bottom: 1px solid #000;
 }
 
 .select-options {
@@ -47,7 +53,7 @@ body {
 .nav-item {
   display: inline-block;
   height: 100%;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: $main-text-color;
   background-color: rgba(135, 221, 154, 0.0);
   padding: .8rem .7rem;
@@ -56,7 +62,6 @@ body {
 }
 
 #kontakt {
-
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, .0);
 
@@ -80,16 +85,36 @@ body {
   }
 }
 
+
+a {
+  color: $main-text-color;
+}
+
+.border-offset {
+  // Distance from text
+  padding-bottom: 1.5px;
+
+  text-decoration: none;
+
+  box-shadow: none;
+  transition: box-shadow .33s ease-out;
+
+  &:hover {
+    box-shadow: 0 5px 0 -4px $main-text-color;
+  }
+}
+
 .toggle-icon {
   position: absolute;
   background: url('../../assets/img/toggle-icon.png');
   width: 26px;
   height: 25px;
-  margin-top: 10px;
+  margin-top: 12px;
   left: -20px;
   display: none;
 
-  @media screen and (max-width: 768px) {
+  //@media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-navigation-switch) {
     display: block;
   }
 }
@@ -105,7 +130,7 @@ body {
 .nav-item-mobile {
   display: inline-block;
   height: 100%;
-  font-size: .8rem;
+  font-size: 1rem;
   color: $main-text-color;
   background-color: rgba(135, 221, 154, 0.0);
   padding: 1rem .5rem;
@@ -128,7 +153,8 @@ body {
     cursor: default;
   }
 
-  @media screen and (max-width: 768px) {
+  //@media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobile-navigation-switch) {
     display: none;
   }
 }
@@ -146,38 +172,46 @@ img {
 }
 
 .overlay {
-  font-family: 'Ubuntu', sans-serif;
+  //font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: auto;
-  background-color: #fff;
-  opacity: .65;
+  background-color: rgba(247, 247, 247, .63);
+  opacity: 1;
   color: $main-text-color;
-  font-size: 23px;
+  font-size: 1.3rem;
   text-align: left;
   padding: 10px;
 }
 
 #content-kontakt {
   display: none;
-  opacity: 0;
+  z-index: 2000;
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 435px;
+  text-align: left;
+
+  -webkit-transition: width 600ms cubic-bezier(1, 0, 0, 1);; /* Safari */
+  transition: width 600ms cubic-bezier(1, 0, 0, 1);;
+
+  @media screen and (max-width: $mobile-navigation-switch) {
+    width: 100%;
+  }
 }
 
 .content-box {
-  font-family: 'Ubuntu', sans-serif;
-  position: relative;
-  margin: 0 auto;
-  //width: 100%;
-  width: fit-content;
-  max-width: 768px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  width: 100%;
   height: auto;
   background-color: $main-background-color;
   color: $main-text-color;
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-  text-align: left;
-  padding: 10px;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  padding: 1.9rem;
 }
 
 .close-button {
@@ -197,7 +231,7 @@ img {
 }
 
 .item-title {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2rem;
 }
 
@@ -225,6 +259,7 @@ img {
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+
 }
 
 .soft-inset {

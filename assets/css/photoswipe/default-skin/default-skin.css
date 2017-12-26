@@ -46,26 +46,22 @@
 .pswp__ui--over-close .pswp__button--close {
   opacity: 1; }
 
-.pswp__button,
-.pswp__button--arrow--left:before,
-.pswp__button--arrow--right:before {
+.pswp__button {
   background: url(default-skin.png) 0 0 no-repeat;
-  background-size: 264px 88px;
+  background-size: 264px 188px;
   width: 44px;
   height: 44px; }
 
-@media (-webkit-min-device-pixel-ratio: 1.1), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
-  /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
-  .pswp--svg .pswp__button,
-  .pswp--svg .pswp__button--arrow--left:before,
-  .pswp--svg .pswp__button--arrow--right:before {
-    background-image: url(default-skin.svg); }
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+  background: url(default-skin.png) 0 0 no-repeat;
+  background-size: 264px 188px;
+  width: 88px;
+  height: 75px; }
 
-  .pswp--svg .pswp__button--arrow--left,
-  .pswp--svg .pswp__button--arrow--right {
-    background: none; } }
 .pswp__button--close {
-  background-position: 0 -44px; }
+  background-position: 0 -44px;
+  margin-right: 16px; }
 
 .pswp__button--share {
   background-position: -44px -44px; }
@@ -117,18 +113,17 @@
 .pswp__button--arrow--right:before {
   content: '';
   top: 35px;
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 30px;
-  width: 32px;
+  height: 73px;
+  width: 75px;
   position: absolute; }
 
 .pswp__button--arrow--left:before {
   left: 6px;
-  background-position: -138px -44px; }
+  background-position: 0px -88px; }
 
 .pswp__button--arrow--right:before {
   right: 6px;
-  background-position: -94px -44px; }
+  background-position: -100px -88px; }
 
 /*
 
@@ -238,12 +233,12 @@ a.pswp__share--download:hover {
   left: 0;
   top: 0;
   height: 44px;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 1rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 44px;
-  opacity: 0.75;
-  padding: 0 10px; }
+  opacity: 1;
+  padding: 0 31px; }
 
 /*
 	
@@ -256,13 +251,13 @@ a.pswp__share--download:hover {
   bottom: 0;
   width: 100%;
   min-height: 44px;
-  background-color: #00b311; }
+  background-color: #f7f7f7; }
   .pswp__caption small {
     font-size: 11px;
     color: #BBB; }
 
 .pswp__caption__center {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   text-align: left;
   max-width: 420px;
   margin-left: 20px;
@@ -399,14 +394,14 @@ a.pswp__share--download:hover {
 
 .pswp__top-bar,
 .pswp__caption {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #2a2a2a; }
+  background-color: rgba(247, 247, 247, 0.5);
+  color: #101010; }
 
 /* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
 .pswp__ui--fit .pswp__top-bar,
 .pswp__ui--fit .pswp__caption {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #2a2a2a; }
+  background-color: rgba(247, 247, 247, 0.3);
+  color: #101010; }
 
 /* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
 .pswp__ui--idle .pswp__top-bar {

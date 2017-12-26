@@ -8,7 +8,8 @@
     <link href="assets/css/mixitup/style.css" rel="stylesheet"/>
     <link href="assets/css/core.css" rel="stylesheet"/>
 
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
 
     <!--==========photo-swipe==========-->
 
@@ -38,10 +39,10 @@
 
 <!--==========menue-bar==========-->
 
-<div id="menueBar" class="menue soft-shadow">
+<div id="menueBar" class="menue">
 
     <div style="position: absolute;display: inline-block;">
-        <div id="kontakt" class="nav-item">Kontakt</div>
+        <div class="nav-item">About</div>
     </div>
 
     <div class="select-options">
@@ -50,7 +51,7 @@
         <div class="nav-item desktop-select" data-type=".object">Objekte</div>
         <div class="nav-item desktop-select" data-type=".project">Projekte</div>
         <div id="toggleIcon" class="nav-item toggle-icon"></div>
-        <div class="nav-item" style="margin-left: 1.5rem; border: 1px solid rgba(0,0,0,.0)">About</div>
+        <div id="kontakt" class="nav-item" style="margin-left: 1.5rem">Kontakt</div>
     </div>
 
     <div id="mobileSelection" class="mobile-selection">
@@ -169,10 +170,31 @@
 
 </div>
 
+<!--==========about/kontakt==========-->
+
+<div id="content-kontakt" style="">
+    <div class="content-box soft-shadow">
+        <div id="kontakt-adress"></div>
+        <div style="margin-top: .3rem"></div>
+        <a id="kontakt-mail" class="border-offset"></a>
+        <div style="margin-top: .3rem"></div>
+        <div id="kontakt-phone"></div>
+        <div style="margin-top: 1rem"></div>
+        <div id="kontakt-werkstatt"></div>
+        <div style="margin-top: .3rem"></div>
+        <a id="kontakt-url" class="border-offset"></a>
+        <div id="close-kontakt" class="close-button"></div>
+    </div>
+</div>
+
 <!--==========core-js==========-->
 
 
-<script src="assets/js/core.js"></script>
+<script src="assets/js/isMobile.min.js"></script>
+<script src="assets/js/alex/core.js"></script>
+<script src="assets/js/alex/navigation.js"></script>
+<script src="assets/js/alex/pswp.js"></script>
+<script src="assets/js/alex/mixitup.js"></script>
 <script type="text/javascript">
     console.log($version)
 </script>

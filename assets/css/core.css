@@ -2,8 +2,9 @@
 html,
 body {
   height: 100%;
-  background: #f4f6f8;
-  font-family: 'Ubuntu', sans-serif;
+  background: #f7f7f7;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: grayscale; }
@@ -17,14 +18,15 @@ body {
   width: 100%;
   height: 60px;
   max-width: 1920px;
-  background-color: #f4f6f8;
+  background-color: #f7f7f7;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 100;
+  z-index: 3000;
   margin: 0 auto;
-  padding: .45rem;
-  padding-left: 1.3rem; }
+  padding: .32rem;
+  padding-left: 1.3rem;
+  border-bottom: 1px solid #000; }
 
 .select-options {
   position: absolute;
@@ -34,7 +36,7 @@ body {
 .nav-item {
   display: inline-block;
   height: 100%;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: #101010;
   background-color: rgba(135, 221, 154, 0);
   padding: .8rem .7rem;
@@ -55,15 +57,26 @@ body {
     -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
     box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
 
+a {
+  color: #101010; }
+
+.border-offset {
+  padding-bottom: 1.5px;
+  text-decoration: none;
+  box-shadow: none;
+  transition: box-shadow .33s ease-out; }
+  .border-offset:hover {
+    box-shadow: 0 5px 0 -4px #101010; }
+
 .toggle-icon {
   position: absolute;
   background: url("../../assets/img/toggle-icon.png");
   width: 26px;
   height: 25px;
-  margin-top: 10px;
+  margin-top: 12px;
   left: -20px;
   display: none; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     .toggle-icon {
       display: block; } }
 
@@ -77,7 +90,7 @@ body {
 .nav-item-mobile {
   display: inline-block;
   height: 100%;
-  font-size: .8rem;
+  font-size: 1rem;
   color: #101010;
   background-color: rgba(135, 221, 154, 0);
   padding: 1rem .5rem;
@@ -93,7 +106,7 @@ body {
   .desktop-select.active {
     opacity: 1;
     cursor: default; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     .desktop-select {
       display: none; } }
 
@@ -108,35 +121,42 @@ img {
   cursor: pointer; }
 
 .overlay {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: auto;
-  background-color: #fff;
-  opacity: .65;
+  background-color: rgba(247, 247, 247, 0.63);
+  opacity: 1;
   color: #101010;
-  font-size: 23px;
+  font-size: 1.3rem;
   text-align: left;
   padding: 10px; }
 
 #content-kontakt {
   display: none;
-  opacity: 0; }
+  z-index: 2000;
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 435px;
+  text-align: left;
+  -webkit-transition: width 600ms cubic-bezier(1, 0, 0, 1);
+  /* Safari */
+  transition: width 600ms cubic-bezier(1, 0, 0, 1); }
+  @media screen and (max-width: 600px) {
+    #content-kontakt {
+      width: 100%; } }
 
 .content-box {
-  font-family: 'Ubuntu', sans-serif;
-  position: relative;
-  margin: 0 auto;
-  width: fit-content;
-  max-width: 768px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  width: 100%;
   height: auto;
-  background-color: #f4f6f8;
+  background-color: #f7f7f7;
   color: #101010;
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-  text-align: left;
-  padding: 10px; }
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  padding: 1.9rem; }
 
 .close-button {
   position: absolute;
@@ -153,7 +173,7 @@ img {
   text-align: center; }
 
 .item-title {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 2rem; }
 
 .item-text {
