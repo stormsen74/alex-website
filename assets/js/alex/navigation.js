@@ -101,6 +101,7 @@ function onClickMobileSelect(e) {
         e.target.classList.add('active');
         desktopSelectButtons[e.target.id].classList.add('active');
         TweenMax.to(desktopSelectButtons[e.target.id], .4, {opacity: 1, ease: Cubic.easeOut});
+        hideMobileSelect();
 
         var selector = e.target.dataset.type;
         filterItems(selector);
@@ -156,12 +157,15 @@ function onHoverOutKontakt(e) {
 
 function onClickKontakt(e) {
     if (!e.target.classList.contains('active')) {
-        kontaktButton.classList.remove('hover');
         viewKontakt();
+    } else {
+        kontaktClose();
     }
 }
 
 function viewKontakt() {
+
+    kontaktButton.classList.remove('hover');
     kontaktButton.classList.add('active');
 
     TweenMax.set(contentKontakt, {right: '-100%', display: 'block', opacity: 1})
@@ -169,11 +173,17 @@ function viewKontakt() {
 }
 
 function onCloseKontakt() {
+
+    kontaktClose();
+
+}
+
+function kontaktClose() {
     kontaktButton.classList.remove('active');
     kontaktButton.classList.remove('hover');
 
-    TweenMax.to(contentKontakt, .2, {
-        opacity: 0, ease: Sine.easeOut, onComplete: function () {
+    TweenMax.to(contentKontakt, .4, {
+        right: '-100%', ease: Cubic.easeIn, onComplete: function () {
             TweenMax.set(contentKontakt, {display: 'none'})
         }
     })

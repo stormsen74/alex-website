@@ -32,3 +32,4 @@ kirby/site/cache/*
 
 kirby/assets/avatars/*
 !kirby/assets/avatars/index.html
+/.src
