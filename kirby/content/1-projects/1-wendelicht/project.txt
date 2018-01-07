@@ -32,8 +32,8 @@ Builder:
   _fieldset: imageBanner
 - 
   image: dsc_1119-low.jpg
-  width: "1920"
-  height: "1080"
+  width: "3264"
+  height: "4928"
   title: Wendelicht
-  description: Leuchtenkörper
+  description: Leuchtenkörper ×
   _fieldset: imageBanner

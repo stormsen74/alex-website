@@ -20,6 +20,8 @@ var mixerConfig = {
 }
 var mixer = mixitup(itemContainer, mixerConfig);
 
+TweenMax.set(itemContainer, {opacity: 0});
+// mixer.filter('none');
 
 function filterItems(selector) {
     if (galleryIsOpen) gallery.close();
@@ -29,8 +31,6 @@ function filterItems(selector) {
     });
 
 
-    // if (kontakt / about) {
-    kontaktButton.classList.remove('active');
-    kontaktButton.classList.remove('hover');
-    // }
+    kontaktClose(.3);
+    aboutClose(.3);
 }

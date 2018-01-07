@@ -7,8 +7,8 @@
 
     $json[] = array(
         'text' => (string)$page->parent()->text(),
-        'image' => (string)$page->parent()->image(),
-        'path' => (string)$page->parent()->contentUrl()
+        'path' => (string)$page->parent()->contentUrl(),
+        'image' => (string)$page->parent()->image()->filename()
       );
 
      echo json_encode($json);

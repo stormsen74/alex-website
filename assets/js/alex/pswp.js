@@ -93,10 +93,12 @@ function adaptLightbox(fs) {
 
     fs = fs || false;
 
+    console.log('adaptLightbox', fs)
+
     if (!fs) {
         TweenMax.set(lightbox, {top: 60, height: window.innerHeight - 60});
     } else {
-        TweenMax.set(lightbox, {top: 0, height: window.innerHeight})
+        TweenMax.set(lightbox, {top: 0, delay: .1, height: window.innerHeight})
     }
 
 };

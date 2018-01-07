@@ -31,18 +31,69 @@
     <script src="assets/js/mixitup/mixitup.min.js"></script>
 
     <script src="assets/js/gsap/TweenMax.min.js"></script>
+    <script src="assets/js/gsap/plugins/DrawSVGPlugin.min.js"></script>
+    <script src="assets/js/gsap/utils/Draggable.min.js"></script>
+    <script src="assets/js/gsap/plugins/ThrowPropsPlugin.min.js"></script>
 
     <title>Alexander Joly</title>
+
+
+    <style>
+
+        .logo {
+            position: absolute;
+            width: 75%;
+            /*height: 300px;*/
+            max-width: 600px;
+            display: none;
+        }
+
+        .stroke {
+            fill-opacity: 0.0;
+            stroke: #101010;
+            stroke-width: 2;
+        }
+
+        .logo-bar {
+            position: absolute;
+            width: 45px;
+            display: inline-block;
+            top: .5em;
+            margin-left: 5em;
+        }
+
+        .stroke-bar {
+            fill-opacity: 0.0;
+            stroke: #101010;
+            stroke-width: 5;
+        }
+
+
+    </style>
 
 </head>
 <body>
 
 <!--==========menue-bar==========-->
 
-<div id="menueBar" class="menue">
+<div id="menueBar" class="menue" style="display: block">
+
+    <div class="logo-bar" id="logo-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300">
+            <path id="bar-a" class="stroke-bar" d="M 82.15 27.75
+Q 86.65 21.9 93 21.9 99.35 21.9 103.8 27.75 104.5 28.65 105.1 29.6 105.85 30.8 106.4 32.1
+L 160.6 162.6 22.6 162.6 79.6 32.1
+Q 80.6 29.8 82.15 27.75 Z"/>
+            <path id="bar-j" class="stroke-bar" d="M 194.25 234.55
+Q 201.05 249.2 203.75 254.4 208.8 264.2 214 271.1 217.5 275.75 220.4 277.95 224.9 281.35 230.7 281.6
+L 261 281.7 293.8 281.8
+Q 301.65 281.65 308.4 276.05 315.1 270.55 315.35 264.3
+L 315.45 21"/>
+        </svg>
+    </div>
 
     <div style="position: absolute;display: inline-block;">
-        <div class="nav-item">About</div>
+        <div id="about" class="nav-item">About</div>
     </div>
 
     <div class="select-options">
@@ -65,12 +116,9 @@
 
 </div>
 
-
-</div>
-
 <!--==========mixitup-container==========-->
 
-<div class="container" style="margin-top: 60px">
+<div class="container" style="margin-top: 60px; display: block">
     <!--<div class="item mix project soft-shadow">-->
     <!--<img src="assets/image_1360x903.jpg">-->
     <!--<div class="overlay soft-inset">-->
@@ -80,23 +128,6 @@
     <!--</div>-->
     <!--</div>-->
     <!--<div class="area"></div>-->
-    <!--</div>-->
-
-    <!--<div id="content-kontakt" class="mix content">-->
-    <!--<div class="content-box">-->
-    <!--<div>-->
-    <!--Alexander Joly<br/>-->
-    <!--Schadesweg 27a<br/>-->
-    <!--20537 Hamburg<br/>-->
-    <!--<br/>-->
-    <!--mail@alexanderjoly.de<br/>-->
-    <!--+49 178 873 0876<br/>-->
-    <!--<br/>-->
-    <!--Alexander Joly arbeitet im Feld von ea nonsequia nis eost ani sa dolorio ribusandis sed que eum eume ne simolo tota conest utet et aut int esciateni ut qui comnis nis esequis siminti nvellab idi bea volupta de volupta spercil inienda eptinul paruptatio teniend ucipsundam rehenis ciisimu sdandusdam nos simenda ndipsae. Itatumq uiatusam voluptatur? Urernatur mil ea core sitaquntibusant ant vendend aecus, in ea reratem. Iquas es iunt, solupta tibusda nihitist magnatibus voluptaque-->
-    <!--non nos est minis moloreri optat omnis qui iurestiur anto to qui te aut maximporaes preiunt occab.-->
-    <!--</div>-->
-    <!--<div id="close-kontakt" class="close-button"></div>-->
-    <!--</div>-->
     <!--</div>-->
 
     <!--added in core.js!-->
@@ -172,18 +203,54 @@
 
 <!--==========about/kontakt==========-->
 
-<div id="content-kontakt">
-    <div class="content-box soft-shadow">
+<div id="content-kontakt" class="soft-shadow">
+    <div class="content-back-layer"></div>
+    <div id="bounds-kontakt" style="position: absolute; left:0; top:20px; width: 10px; height: 10px"></div>
+    <div id="scroll-kontakt" class="content-box">
         <div id="kontakt-adress"></div>
         <div style="margin-top: .3rem"></div>
-        <a id="kontakt-mail" class="border-offset"></a>
+        <a id="kontakt-mail" class="url-hover"></a>
         <div style="margin-top: .3rem"></div>
         <div id="kontakt-phone"></div>
         <div style="margin-top: 1rem"></div>
         <div id="kontakt-werkstatt"></div>
         <div style="margin-top: .3rem"></div>
-        <a id="kontakt-url" class="border-offset"></a>
-        <div id="close-kontakt" class="close-button"></div>
+        <a id="kontakt-url" class="url-hover"></a>
+        <div style="margin-bottom: 1rem"></div>
+    </div>
+    <div class="content-front-layer"></div>
+    <div id="close-kontakt" class="close-button"></div>
+</div>
+
+
+<div id="content-about" class="soft-shadow">
+    <div class="content-back-layer"></div>
+    <div id="bounds-about" style="position: absolute; left:0; top:20px; width: 10px; height: 10px"></div>
+    <div id="scroll-about" class="content-box">
+        <div id="about-text"></div>
+        <div style="margin-top: 1rem"></div>
+        <img id="about-image" style="position: relative" src="">
+        <div style="margin-bottom: 1rem"></div>
+    </div>
+    <div class="content-front-layer"></div>
+    <div id="close-about" class="close-button"></div>
+</div>
+
+<!--==========start/layer==========-->
+
+<div id="layer-start" class="layer-start">
+    <div class="logo" id="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300">
+            <path id="path_a" class="stroke" d="M 82.15 27.75
+Q 86.65 21.9 93 21.9 99.35 21.9 103.8 27.75 104.5 28.65 105.1 29.6 105.85 30.8 106.4 32.1
+L 160.6 162.6 22.6 162.6 79.6 32.1
+Q 80.6 29.8 82.15 27.75 Z"/>
+            <path id="path_j" class="stroke" d="M 194.25 234.55
+Q 201.05 249.2 203.75 254.4 208.8 264.2 214 271.1 217.5 275.75 220.4 277.95 224.9 281.35 230.7 281.6
+L 261 281.7 293.8 281.8
+Q 301.65 281.65 308.4 276.05 315.1 270.55 315.35 264.3
+L 315.45 21"/>
+        </svg>
     </div>
 </div>
 

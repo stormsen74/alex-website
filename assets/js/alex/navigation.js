@@ -131,7 +131,7 @@ function showAllItems() {
 }
 
 
-// CONTENT
+// CONTENT->KONTAKT
 
 var kontaktButton = document.getElementById('kontakt');
 kontaktButton.addEventListener('mouseover', onHoverKontakt);
@@ -154,7 +154,6 @@ function onHoverOutKontakt(e) {
     }
 }
 
-
 function onClickKontakt(e) {
     if (!e.target.classList.contains('active')) {
         viewKontakt();
@@ -164,27 +163,90 @@ function onClickKontakt(e) {
 }
 
 function viewKontakt() {
-
     kontaktButton.classList.remove('hover');
     kontaktButton.classList.add('active');
 
     TweenMax.set(contentKontakt, {right: '-100%', display: 'block', opacity: 1})
     TweenMax.to(contentKontakt, .5, {right: '0%', ease: Cubic.easeOut})
+
+    aboutClose(.25);
+    TweenMax.set('#scroll-kontakt', {y: 20});
+    checkContentOverflow();
 }
 
 function onCloseKontakt() {
-
     kontaktClose();
-
 }
 
-function kontaktClose() {
+function kontaktClose(t) {
+    t = t || .4;
+
     kontaktButton.classList.remove('active');
     kontaktButton.classList.remove('hover');
 
-    TweenMax.to(contentKontakt, .4, {
-        right: '-100%', ease: Cubic.easeIn, onComplete: function () {
+    TweenMax.to(contentKontakt, t, {
+        right: '-100%', ease: Cubic.easeInOut, onComplete: function () {
             TweenMax.set(contentKontakt, {display: 'none'})
+        }
+    })
+}
+
+// CONTENT->ABOUT
+
+var aboutButton = document.getElementById('about');
+aboutButton.addEventListener('mouseover', onHoverAbout);
+aboutButton.addEventListener('mouseout', onHoverOutAbout);
+aboutButton.addEventListener('click', onClickAbout);
+
+var contentAbout = document.getElementById('content-about');
+var closeAbout = document.getElementById('close-about');
+closeAbout.addEventListener('click', onCloseAbout);
+
+function onHoverAbout(e) {
+    if (!e.target.classList.contains('active')) {
+        TweenMax.to(e.target, .3, {className: "+=hover", ease: Sine.easeOut})
+    }
+}
+
+function onHoverOutAbout(e) {
+    if (!e.target.classList.contains('active')) {
+        TweenMax.to(e.target, .4, {className: "-=hover", ease: Cubic.easeOut})
+    }
+}
+
+function onClickAbout(e) {
+    if (!e.target.classList.contains('active')) {
+        viewAbout();
+    } else {
+        aboutClose();
+    }
+}
+
+function viewAbout() {
+    aboutButton.classList.remove('hover');
+    aboutButton.classList.add('active');
+
+    TweenMax.set(contentAbout, {left: '-100%', display: 'block', opacity: 1})
+    TweenMax.to(contentAbout, .5, {left: '0%', ease: Cubic.easeOut})
+
+    kontaktClose(.25);
+    TweenMax.set('#scroll-about', {y: 20});
+    checkContentOverflow();
+}
+
+function onCloseAbout() {
+    aboutClose();
+}
+
+function aboutClose(t) {
+    t = t || .4;
+
+    aboutButton.classList.remove('active');
+    aboutButton.classList.remove('hover');
+
+    TweenMax.to(contentAbout, t, {
+        left: '-100%', ease: Cubic.easeInOut, onComplete: function () {
+            TweenMax.set(contentAbout, {display: 'none'})
         }
     })
 }
