@@ -1,5 +1,3 @@
-
-
 /* Container
 ---------------------------------------------------------------------- */
 
@@ -9,7 +7,6 @@
     padding: 1.5rem;
     text-align: justify;
     font-size: 0.1px;
-
 
 }
 
@@ -71,7 +68,6 @@
     padding-top: 0;
 }
 
-
 /* 1 Columns */
 
 .mix,
@@ -79,23 +75,25 @@
     width: calc(100% / 1 - (((1 - 1) * 1.618rem) / 1));
     margin-bottom: .5rem;
 }
+
 .container {
     padding: .5rem;
-    -webkit-transition: padding 225ms cubic-bezier(.42,.01,.31,.88);
-    -moz-transition: padding 225ms cubic-bezier(.42,.01,.31,.88);
-    -o-transition: padding 225ms cubic-bezier(.42,.01,.31,.88);
-    transition: padding 225ms cubic-bezier(.42,.01,.31,.88);
+    -webkit-transition: padding 225ms cubic-bezier(.42, .01, .31, .88);
+    -moz-transition: padding 225ms cubic-bezier(.42, .01, .31, .88);
+    -o-transition: padding 225ms cubic-bezier(.42, .01, .31, .88);
+    transition: padding 225ms cubic-bezier(.42, .01, .31, .88);
 }
 
 /* 2 Columns */
 
-@media screen and (min-width: 769px) {
-/*@media screen and (min-width: 469px) {*/
+/*@media screen and (min-width: 769px) {*/
+@media screen and (min-width: 600px) {
     .mix,
     .gap {
         width: calc(100% / 2 - (((2 - 1) * 1rem) / 2));
         margin-bottom: 1rem;
     }
+
     .container {
         padding: 1rem;
     }
@@ -109,6 +107,7 @@
         width: calc(100% / 3 - (((3 - 1) * 1.5rem) / 3));
         margin-bottom: 1.5rem;
     }
+
     .container {
         padding: 1.5rem;
     }

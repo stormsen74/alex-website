@@ -27,7 +27,9 @@ var gallery_options = {
 
 var buildGallery = function (_images) {
 
-    console.log('build', _images)
+    kontaktClose(.6);
+    aboutClose(.6);
+
 
     pswpElement.style.display = 'block';
 
@@ -85,6 +87,8 @@ var buildGallery = function (_images) {
     galleryIsOpen = true;
     hideMobileSelect();
     adaptLightbox();
+
+
 
 };
 

@@ -33,8 +33,10 @@ function onRecieve(response) {
  --------------------------------------------*/
 
 var items;
+var maxImages = 0;
+var imagesLoaded = false;
 
-function createItem(itemData) {
+function createItem(itemData, index) {
 
     var item = document.createElement('div');
     item.classList.add('item', 'mix', itemData['category']);
@@ -44,6 +46,11 @@ function createItem(itemData) {
     var imagePath = item.images[0][0] + "/" + item.images[0][1];
     var image = document.createElement("img");
     image.setAttribute("src", imagePath);
+    image.onload = function () {
+        // console.log("image is loaded", index, index == maxImages);
+        if (index == maxImages) imagesLoaded = true;
+        // console.log('imagesLoaded', imagesLoaded)
+    }
     // TweenMax.delayedCall(1, function () {console.log(image.naturalWidth)})
 
     var overlay = document.createElement("div");
@@ -76,8 +83,9 @@ function createItem(itemData) {
 
 function createItems(data) {
 
+    maxImages = data.length - 1;
     for (var i = 0; i < data.length; i++) {
-        mixer.append(createItem(data[i]), false)
+        mixer.append(createItem(data[i], i), false)
     }
 
     for (var g = 1; g <= 3; g++) {
@@ -93,7 +101,6 @@ function createItems(data) {
 function initItemListener() {
 
     checkMobile();
-    console.log(mobileNav)
     items = Array.from(document.getElementsByClassName('area'));
 
     items.forEach(function (area) {
@@ -299,7 +306,28 @@ function buildLogo() {
 
     TweenMax.to(menueBar, .4, {delay: 1.63, top: 0, ease: Sine.easeOut});
 
+
     TweenMax.delayedCall(2, viewContents)
+}
+
+
+function setBar(state) {
+
+    if (state == 0) {
+        TweenMax.set('#bar-a', {drawSVG: '0% 0%'});
+        TweenMax.set('#bar-j', {drawSVG: '0% 0%'});
+    } else if (state == 1) {
+        TweenMax.to('#bar-a', 1.5, {delay: 0, drawSVG: '0% 100%', ease: Power2.easeInOut});
+        TweenMax.to('#bar-j', 1.5, {delay: .3, drawSVG: '0% 100%', ease: Power3.easeInOut});
+    }
+
+}
+
+setBar(0);
+
+
+function checkLoad() {
+    return imagesLoaded == true ? true : false;
 }
 
 function viewContents() {
@@ -310,8 +338,15 @@ function viewContents() {
     TweenMax.to('#path_a', .5, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
     TweenMax.to('#path_j', .5, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
     TweenMax.delayedCall(.5, function () {
-        TweenMax.set(['html', 'body'], {overflow: 'visible'});
-        TweenMax.to(itemContainer, .5, {opacity: 1, ease: Sine.easeOut});
+
+        setBar(1);
+
+        if (checkLoad()) {
+            TweenMax.set(['html', 'body'], {overflow: 'visible'});
+            TweenMax.to(itemContainer, .63, {opacity: 1, ease: Sine.easeOut});
+        } else {
+            TweenMax.delayedCall(.2, checkLoad)
+        }
         // mixer.filter('all');
 
         isInitial = false;
