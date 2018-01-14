@@ -19,7 +19,6 @@ body {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: grayscale;
 
-
   overflow: hidden;
 }
 
@@ -37,6 +36,35 @@ body {
   height: 100%;
   background-color: $main-background-color;
   display: block;
+}
+
+.logo {
+  position: absolute;
+  width: 75%;
+  /*height: 300px;*/
+  max-width: 600px;
+  display: none;
+}
+
+.stroke {
+  fill-opacity: 0.0;
+  stroke: #101010;
+  stroke-width: 2;
+}
+
+.logo-bar {
+  position: absolute;
+  width: 45px;
+  display: inline-block;
+  top: .7em;
+  margin-left: 5em;
+  cursor: pointer;
+}
+
+.stroke-bar {
+  fill-opacity: 0.0;
+  stroke: #101010;
+  stroke-width: 5;
 }
 
 .menue {

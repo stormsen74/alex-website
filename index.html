@@ -25,7 +25,6 @@
     <!-- UI JS file -->
     <script src="assets/js/photoswipe/photoswipe-ui-default.js"></script>
 
-
     <!--==========photo-swipe==========-->
 
     <script src="assets/js/mixitup/mixitup.min.js"></script>
@@ -38,38 +37,7 @@
     <title>Alexander Joly</title>
 
 
-    <style>
-
-        .logo {
-            position: absolute;
-            width: 75%;
-            /*height: 300px;*/
-            max-width: 600px;
-            display: none;
-        }
-
-        .stroke {
-            fill-opacity: 0.0;
-            stroke: #101010;
-            stroke-width: 2;
-        }
-
-        .logo-bar {
-            position: absolute;
-            width: 45px;
-            display: inline-block;
-            top: .7em;
-            margin-left: 5em;
-        }
-
-        .stroke-bar {
-            fill-opacity: 0.0;
-            stroke: #101010;
-            stroke-width: 5;
-        }
-
-
-    </style>
+    <style></style>
 
 </head>
 <body>
@@ -97,7 +65,8 @@ L 315.45 21"/>
     </div>
 
     <div class="select-options">
-        <div class="nav-item desktop-select active" data-type="all">Übersicht</div>
+        <!--set active class -->
+        <div class="nav-item desktop-select" data-type="all">Übersicht</div>
         <div class="nav-item desktop-select" data-type=".model">Modelle</div>
         <div class="nav-item desktop-select" data-type=".object">Objekte</div>
         <div class="nav-item desktop-select" data-type=".project">Projekte</div>
@@ -107,7 +76,7 @@ L 315.45 21"/>
 
     <div id="mobileSelection" class="mobile-selection">
         <div class="select-options-mobile" style="text-align: center">
-            <div class="nav-item-mobile active" data-type="all">Übersicht</div>
+            <div class="nav-item-mobile" data-type="all">Übersicht</div>
             <div class="nav-item-mobile" data-type=".model">Modelle</div>
             <div class="nav-item-mobile" data-type=".object">Objekte</div>
             <div class="nav-item-mobile" data-type=".project">Projekte</div>
@@ -211,7 +180,7 @@ L 315.45 21"/>
         <div style="margin-top: .3rem"></div>
         <a id="kontakt-mail" class="url-hover"></a>
         <div style="margin-top: .3rem"></div>
-        <div id="kontakt-phone"></div>
+        <a id="kontakt-phone"></a>
         <div style="margin-top: 1rem"></div>
         <div id="kontakt-werkstatt"></div>
         <div style="margin-top: .3rem"></div>

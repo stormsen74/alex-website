@@ -24,13 +24,14 @@ TweenMax.set(itemContainer, {opacity: 0});
 // mixer.filter('none');
 
 function filterItems(selector) {
-    if (galleryIsOpen) gallery.close();
+
     currentSelector = selector;
     mixer.filter(selector).then(function (state) {
         // console.log('ready', state);
     });
 
-
+    if (galleryIsOpen) gallery.close();
+    if (autoSlide) stopAutoSlide();
     kontaktClose(.3);
     aboutClose(.3);
 }

@@ -1,6 +1,6 @@
 console.log('core!')
 
-var $version = .3;
+var $version = .7;
 var mobileNav = false;
 var mobileNavSwitch = 600;
 var isInitial = true;
@@ -35,6 +35,29 @@ function onRecieve(response) {
 var items;
 var maxImages = 0;
 var imagesLoaded = false;
+var slideImages = [];
+
+
+function addToSlide(images, start, end) {
+    var start = start || 0;
+    var end = end || images.length;
+
+    for (var i = start; i < end; i++) {
+        slideImages.push(images[i]);
+    }
+}
+
+function createInitialSlide(data) {
+
+    for (var i = 0; i < data.length; i++) {
+        addToSlide(data[i].images)
+    }
+
+    buildGallery(slideImages, 'initial');
+    pswpElement.style.display = 'none';
+    pswpElement.style.opacity = 0;
+}
+
 
 function createItem(itemData, index) {
 
@@ -68,8 +91,10 @@ function createItem(itemData, index) {
     var area = document.createElement("div");
     area.classList.add('area');
 
-    title.innerHTML = itemData['title'];
-    text.innerHTML = itemData['text'];
+    title.innerHTML = itemData['title'].replace(/\n/g, "<br/>");
+    ;
+    text.innerHTML = itemData['text'].replace(/\n/g, "<br/>");
+    ;
 
     description.appendChild(title);
     description.appendChild(text);
@@ -82,6 +107,8 @@ function createItem(itemData, index) {
 }
 
 function createItems(data) {
+
+    createInitialSlide(data);
 
     maxImages = data.length - 1;
     for (var i = 0; i < data.length; i++) {
@@ -105,6 +132,7 @@ function initItemListener() {
 
     items.forEach(function (area) {
         area.itemData = {
+            image: area.parentElement.childNodes[0],
             overlay: area.parentElement.childNodes[1],
             description: area.parentElement.childNodes[1].childNodes[0],
             overlay_height: area.parentElement.childNodes[1].getBoundingClientRect().height
@@ -118,27 +146,41 @@ function initItemListener() {
         if (!mobile) {
             area.addEventListener('mouseover', function (event) {
                 TweenMax.to(this.itemData.overlay, .4, {
-                    height: '100%',
+                    // height: '100%',
                     backgroundColor: 'rgba(247, 247, 247, 0.85)',
-                    ease: Power2.easeInOut
+                    ease: Cubic.easeOut
                 });
 
-                TweenMax.to(this.itemData.description, .4, {
-                    top: '35%',
-                    ease: Power2.easeInOut
-                })
+                TweenMax.to(this.itemData.image, .4, {
+                    opacity: .65,
+                    // '-webkit-filter': 'blur(2px)',
+                    // 'filter': 'blur(2px)',
+                    ease: Sine.easeOut
+                });
+
+                // TweenMax.to(this.itemData.description, .4, {
+                //     top: '35%',
+                //     ease: Power2.easeInOut
+                // })
             });
             area.addEventListener('mouseout', function (event) {
                 TweenMax.to(this.itemData.overlay, .4, {
-                    height: this.itemData.overlay_height,
+                    // height: this.itemData.overlay_height,
                     backgroundColor: 'rgba(247, 247, 247, 0.63)',
-                    ease: Power3.easeInOut
+                    ease: Sine.easeOut
                 });
 
-                TweenMax.to(this.itemData.description, .4, {
-                    top: '0%',
-                    ease: Power3.easeInOut
-                })
+                TweenMax.to(this.itemData.image, .4, {
+                    opacity: 1,
+                    // '-webkit-filter': 'blur(0px)',
+                    // 'filter': 'blur(0px)',
+                    ease: Sine.easeOut
+                });
+
+                // TweenMax.to(this.itemData.description, .4, {
+                //     top: '0%',
+                //     ease: Power3.easeInOut
+                // })
             });
         }
     });
@@ -171,7 +213,7 @@ function onRecieveKontaktData(response) {
 
 function createKontakt(kontaktData) {
 
-    console.log(kontaktData[0]);
+    // console.log(kontaktData[0]);
 
     var scrollContainer = document.getElementById('scroll-kontakt');
     TweenMax.set(scrollContainer, {y: 20});
@@ -185,7 +227,9 @@ function createKontakt(kontaktData) {
     document.getElementById('kontakt-mail').setAttribute("href", 'mailto:' + kontaktData[0]['mail']);
     document.getElementById('kontakt-mail').innerHTML = kontaktData[0]['mail'];
 
+    document.getElementById('kontakt-phone').setAttribute("href", 'tel:' + kontaktData[0]['phone']);
     document.getElementById('kontakt-phone').innerHTML = kontaktData[0]['phone'];
+
     document.getElementById('kontakt-werkstatt').innerHTML = kontaktData[0]['adress_work'].replace(/\n/g, "<br/>");
 
     document.getElementById('kontakt-url').setAttribute("href", kontaktData[0]['url_work']);
@@ -215,7 +259,7 @@ function onRecieveAboutData(response) {
 }
 
 function createAbout(aboutData) {
-    console.log(aboutData[0]);
+    // console.log(aboutData[0]);
 
     var containerAbout = document.getElementById('scroll-about');
     TweenMax.set(containerAbout, {y: 20});
@@ -236,6 +280,21 @@ function createAbout(aboutData) {
  --------------------------------------------*/
 
 window.addEventListener("resize", onResize);
+window.addEventListener("orientationchange", onOrientationChange);
+
+function onOrientationChange(e) {
+
+    if (isMobileSelect) {
+        hideMobileSelect();
+    }
+
+
+    // if (screen.orientation.type == 'landscape-primary') {
+    //     if (mobileNav && isMobileSelect) {
+    //         hideMobileSelect();
+    //     }
+    // }
+}
 
 function onResize(e) {
 
@@ -257,12 +316,13 @@ function onResize(e) {
 function setLogo() {
     var w = window.innerWidth;
     var h = window.innerHeight;
+    var logo = document.getElementById('logo');
     var logoWidth = document.getElementById('logo').getBoundingClientRect().width;
     var logoHeight = document.getElementById('logo').getBoundingClientRect().height;
 
-    TweenMax.set(document.getElementById('logo'), {
+    TweenMax.set(logo, {
         left: w * .5 - logoWidth * .5,
-        top: h * .5 - logoHeight * .6
+        top: h * .5 - logoHeight * .5
     });
 
 }
@@ -274,7 +334,6 @@ function checkMobile() {
         if (mobileNav) mobileNav = false
     }
 }
-
 
 function checkContentOverflow() {
     var scrollAbout = document.getElementById('scroll-about');
@@ -304,12 +363,13 @@ function buildLogo() {
     TweenMax.to('#path_a', 1.5, {delay: 0, drawSVG: '0% 100%', ease: Cubic.easeInOut});
     TweenMax.to('#path_j', 1.5, {delay: .3, drawSVG: '0% 100%', ease: Cubic.easeInOut});
 
+    // return
+
     TweenMax.to(menueBar, .4, {delay: 1.63, top: 0, ease: Sine.easeOut});
 
 
     TweenMax.delayedCall(2, viewContents)
 }
-
 
 function setBar(state) {
 
@@ -323,7 +383,19 @@ function setBar(state) {
 
 }
 
+function initAJListener() {
+    var logo = document.getElementById('logo-bar');
+    logo.addEventListener('click', function (event) {
+        if (!autoSlide) {
+            if (galleryIsOpen) gallery.close();
+            buildGallery(slideImages, 'initial');
+            startAutoSlide();
+        }
+    });
+}
+
 setBar(0);
+initAJListener();
 
 
 function checkLoad() {
@@ -334,6 +406,7 @@ function viewContents() {
 
     // mixer.filter('none');
 
+
     TweenMax.to('#layer-start', 1, {delay: 0, autoAlpha: 0, ease: Sine.easeInOut});
     TweenMax.to('#path_a', .5, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
     TweenMax.to('#path_j', .5, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
@@ -341,15 +414,24 @@ function viewContents() {
 
         setBar(1);
 
-        if (checkLoad()) {
-            TweenMax.set(['html', 'body'], {overflow: 'visible'});
-            TweenMax.to(itemContainer, .63, {opacity: 1, ease: Sine.easeOut});
+        if (checkLoad() && initialSlideLoaded) {
+            // TweenMax.set(['html', 'body'], {overflow: 'visible'});
+
+            // TweenMax.to(itemContainer, .63, {display: 'block', opacity: 1, ease: Sine.easeOut});
+
+            pswpElement.style.display = 'block';
+            TweenMax.to(pswpElement, .5, {
+                delay: .1, opacity: 1, ease: Cubic.easeOut, onComplete: function () {
+                    TweenMax.set(itemContainer, {delay: .5, display: 'block', opacity: 1});
+                    startAutoSlide();
+                }
+            });
         } else {
             TweenMax.delayedCall(.2, checkLoad)
         }
-        // mixer.filter('all');
 
         isInitial = false;
+
     })
 }
 
