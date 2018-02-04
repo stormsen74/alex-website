@@ -12,7 +12,7 @@ var toggleIcon = document.getElementById('toggleIcon');
 var menueBarSize = {
     defaultHeight: 60,
     toggleHeight: 95
-}
+};
 
 
 var isMobileSelect = false;
@@ -163,6 +163,8 @@ function onClickKontakt(e) {
 }
 
 function viewKontakt() {
+    setContentHeight();
+
     kontaktButton.classList.remove('hover');
     kontaktButton.classList.add('active');
 
@@ -223,6 +225,8 @@ function onClickAbout(e) {
 }
 
 function viewAbout() {
+    setContentHeight();
+
     aboutButton.classList.remove('hover');
     aboutButton.classList.add('active');
 

@@ -17,7 +17,7 @@ Text: In Zusammenarbeit mit Paul Schatz Stiftung Basel
 Builder: 
 
 - 
-  image: image_1360x903.jpg
+  image: 1920x1080.jpg
   title: Wendelicht
   description: Funktionsmodell des Federmechanismus
   _fieldset: imageBanner

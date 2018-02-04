@@ -10,7 +10,7 @@ var lightbox = document.getElementById('lightbox');
 var gallery;
 var galleryIsOpen = false;
 var autoSlide = false;
-var autoSlideDelay = 4.5;
+// var autoSlideDelay = 4.5;
 
 /*--------------------------------------------
  ~ gallery
@@ -28,11 +28,8 @@ var gallery_options = {
     closeOnVerticalDrag: false
 };
 
-var initialSlideLoaded = false;
-
-
 var buildGallery = function (_images, type) {
-    console.log('buildGallery', _images, type)
+    // console.log('buildGallery', _images, type)
 
     if (mobile) {
         kontaktClose(.5);
@@ -69,17 +66,17 @@ var buildGallery = function (_images, type) {
         // console.log(gallery.currItem.container.parentNode.style.transform);
         // console.log(gallery.currItem.container.parentNode)
 
-        if (type == 'initial' && autoSlide) {
-            TweenMax.set(gallery.currItem.container, {opacity: 0});
-            TweenMax.to(gallery.currItem.container, .5, {opacity: 1, ease: Sine.easeOut});
-        }
+        // if (type == 'initial' && autoSlide) {
+        //     TweenMax.set(gallery.currItem.container, {opacity: 0});
+        //     TweenMax.to(gallery.currItem.container, .5, {opacity: 1, ease: Sine.easeOut});
+        // }
     });
 
     gallery.listen('preventDragEvent', function (e, isDown, preventObj) {
         // e - original event
         // isDown - true = drag start, false = drag release
 
-        if (autoSlide) stopAutoSlide();
+        // if (autoSlide) stopAutoSlide();
         if (isMobileSelect) hideMobileSelect();
 
         // Line below will force e.preventDefault() on:
@@ -93,9 +90,9 @@ var buildGallery = function (_images, type) {
         // index - index of a slide that was loaded
         // item - slide object
 
-        if (type == 'initial' && index == 1) {
-            initialSlideLoaded = true;
-        }
+        // if (type == 'initial' && index == 1) {
+        //     initialSlideLoaded = true;
+        // }
 
     });
 
@@ -103,7 +100,6 @@ var buildGallery = function (_images, type) {
     gallery.listen('close', function () {
         TweenMax.set(['html', 'body'], {overflow: 'visible'});
         galleryIsOpen = false;
-        stopAutoSlide();
     });
 
 
@@ -111,38 +107,5 @@ var buildGallery = function (_images, type) {
     galleryIsOpen = true;
     TweenMax.set(['html', 'body'], {overflow: 'hidden'});
     hideMobileSelect();
-    adaptLightbox();
-
-
-};
-
-
-function startAutoSlide() {
-    TweenMax.delayedCall(autoSlideDelay, autoStep)
-    autoSlide = true;
-}
-
-function autoStep() {
-    gallery.next();
-    TweenMax.delayedCall(autoSlideDelay, autoStep)
-}
-
-function stopAutoSlide() {
-    TweenMax.killDelayedCallsTo(autoStep);
-    autoSlide = false;
-}
-
-
-function adaptLightbox(fs) {
-
-    fs = fs || false;
-
-    // console.log('adaptLightbox', fs)
-
-    if (!fs) {
-        TweenMax.set(lightbox, {top: 60, height: window.innerHeight - 60});
-    } else {
-        TweenMax.set(lightbox, {top: 0, delay: .1, height: window.innerHeight})
-    }
-
+    setLightboxHeight();
 };

@@ -97,54 +97,39 @@ body {
   background-color: rgba(135, 221, 154, 0.0);
   padding: .8rem .7rem;
   cursor: pointer;
-
 }
 
 #kontakt {
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, .0);
+  opacity: .5;
 
   &.hover {
-    border: 1px dashed rgba(0, 0, 0, .3);
+    opacity: 1;
 
-    $blur-radius: 10px;
-    -webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    //border: 1px dashed rgba(0, 0, 0, .3);
+    //$blur-radius: 10px;
+    //-webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    //-moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    //box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
   }
 
   &.active {
     cursor: default;
-    border: 1px dashed rgba(0, 0, 0, .6);
-
-    $blur-radius: 10px;
-    -webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    opacity: 1;
   }
 }
 
 #about {
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, .0);
+  opacity: .5;
 
   &.hover {
-    border: 1px dashed rgba(0, 0, 0, .3);
-
-    $blur-radius: 10px;
-    -webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    opacity: 1;
   }
 
   &.active {
     cursor: default;
-    border: 1px dashed rgba(0, 0, 0, .6);
-
-    $blur-radius: 10px;
-    -webkit-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px $blur-radius 0px rgba(0, 0, 0, 0.23);
+    opacity: 1;
   }
 }
 
@@ -253,6 +238,15 @@ img {
   cursor: pointer;
 }
 
+.item img {
+  position: absolute;
+  display: inline-block;
+  height: auto !important;
+  width: 120%;
+  margin-left: -10%;
+  opacity: 1;
+}
+
 .overlay {
   //font-family: 'Ubuntu', sans-serif;
   font-family: 'Open Sans Condensed', sans-serif;
@@ -277,6 +271,7 @@ img {
   right: 0;
   width: 435px;
   text-align: left;
+  background-color: $main-background-color;
 
   -webkit-transition: width 600ms cubic-bezier(1, 0, 0, 1);; /* Safari */
   transition: width 600ms cubic-bezier(1, 0, 0, 1);;
@@ -295,6 +290,7 @@ img {
   left: 0;
   width: 555px;
   text-align: left;
+  background-color: $main-background-color;
 
   -webkit-transition: width 600ms cubic-bezier(1, 0, 0, 1);; /* Safari */
   transition: width 600ms cubic-bezier(1, 0, 0, 1);;

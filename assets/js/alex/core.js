@@ -1,10 +1,6 @@
-console.log('core!')
-
-var $version = .7;
 var mobileNav = false;
 var mobileNavSwitch = 600;
 var isInitial = true;
-
 
 /*--------------------------------------------
  ~ getItemData
@@ -27,7 +23,6 @@ function onRecieve(response) {
     createItems(JSON.parse(response));
 }
 
-
 /*--------------------------------------------
  ~ create Items
  --------------------------------------------*/
@@ -35,29 +30,6 @@ function onRecieve(response) {
 var items;
 var maxImages = 0;
 var imagesLoaded = false;
-var slideImages = [];
-
-
-function addToSlide(images, start, end) {
-    var start = start || 0;
-    var end = end || images.length;
-
-    for (var i = start; i < end; i++) {
-        slideImages.push(images[i]);
-    }
-}
-
-function createInitialSlide(data) {
-
-    for (var i = 0; i < data.length; i++) {
-        addToSlide(data[i].images)
-    }
-
-    buildGallery(slideImages, 'initial');
-    pswpElement.style.display = 'none';
-    pswpElement.style.opacity = 0;
-}
-
 
 function createItem(itemData, index) {
 
@@ -92,9 +64,9 @@ function createItem(itemData, index) {
     area.classList.add('area');
 
     title.innerHTML = itemData['title'].replace(/\n/g, "<br/>");
-    ;
+
     text.innerHTML = itemData['text'].replace(/\n/g, "<br/>");
-    ;
+
 
     description.appendChild(title);
     description.appendChild(text);
@@ -107,8 +79,6 @@ function createItem(itemData, index) {
 }
 
 function createItems(data) {
-
-    createInitialSlide(data);
 
     maxImages = data.length - 1;
     for (var i = 0; i < data.length; i++) {
@@ -279,13 +249,25 @@ function createAbout(aboutData) {
  ~
  --------------------------------------------*/
 
+var scrollAbout = document.getElementById('scroll-about');
+var scrollKontakt = document.getElementById('scroll-kontakt');
+var contentAbout = document.getElementById('content-about');
+var contentKontakt = document.getElementById('content-kontakt');
+
+
 window.addEventListener("resize", onResize);
 window.addEventListener("orientationchange", onOrientationChange);
+
 
 function onOrientationChange(e) {
 
     if (isMobileSelect) {
         hideMobileSelect();
+    }
+
+    if (mobile) {
+        kontaktClose();
+        aboutClose();
     }
 
 
@@ -295,6 +277,7 @@ function onOrientationChange(e) {
     //     }
     // }
 }
+
 
 function onResize(e) {
 
@@ -309,8 +292,18 @@ function onResize(e) {
         hideMobileSelect();
     }
 
-    !lightbox.classList.contains('pswp--fs') ? adaptLightbox() : adaptLightbox(true)
 
+    setLightboxHeight();
+    setContentHeight();
+
+}
+
+function setLightboxHeight() {
+    TweenMax.set(lightbox, {height: window.innerHeight - 60});
+}
+
+function setContentHeight() {
+    TweenMax.set([contentAbout, contentKontakt], {height: window.innerHeight - menueBarSize.defaultHeight});
 }
 
 function setLogo() {
@@ -336,18 +329,17 @@ function checkMobile() {
 }
 
 function checkContentOverflow() {
-    var scrollAbout = document.getElementById('scroll-about');
-    var scrollKontakt = document.getElementById('scroll-kontakt');
+
     var diffAbout = window.innerHeight - menueBarSize.defaultHeight - scrollAbout.getBoundingClientRect().height;
     var diffKontakt = window.innerHeight - menueBarSize.defaultHeight - scrollKontakt.getBoundingClientRect().height;
 
     diffAbout <= 0 ?
         TweenMax.set('#bounds-about', {height: window.innerHeight - menueBarSize.defaultHeight}) :
-        TweenMax.set('#bounds-about', {height: scrollAbout.getBoundingClientRect().height})
+        TweenMax.set('#bounds-about', {height: scrollAbout.getBoundingClientRect().height});
 
     diffKontakt <= 0 ?
         TweenMax.set('#bounds-kontakt', {height: window.innerHeight - menueBarSize.defaultHeight}) :
-        TweenMax.set('#bounds-kontakt', {height: scrollKontakt.getBoundingClientRect().height})
+        TweenMax.set('#bounds-kontakt', {height: scrollKontakt.getBoundingClientRect().height});
 }
 
 /*--------------------------------------------
@@ -363,12 +355,7 @@ function buildLogo() {
     TweenMax.to('#path_a', 1.5, {delay: 0, drawSVG: '0% 100%', ease: Cubic.easeInOut});
     TweenMax.to('#path_j', 1.5, {delay: .3, drawSVG: '0% 100%', ease: Cubic.easeInOut});
 
-    // return
-
-    TweenMax.to(menueBar, .4, {delay: 1.63, top: 0, ease: Sine.easeOut});
-
-
-    TweenMax.delayedCall(2, viewContents)
+    TweenMax.delayedCall(2, checkLoad)
 }
 
 function setBar(state) {
@@ -383,56 +370,35 @@ function setBar(state) {
 
 }
 
-function initAJListener() {
-    var logo = document.getElementById('logo-bar');
-    logo.addEventListener('click', function (event) {
-        if (!autoSlide) {
-            if (galleryIsOpen) gallery.close();
-            buildGallery(slideImages, 'initial');
-            startAutoSlide();
-        }
-    });
-}
 
 setBar(0);
-initAJListener();
 
 
 function checkLoad() {
-    return imagesLoaded == true ? true : false;
+
+    if (imagesLoaded) {
+        viewContents();
+    } else {
+        TweenMax.delayedCall(.2, checkLoad)
+    }
 }
 
 function viewContents() {
 
-    // mixer.filter('none');
-
-
-    TweenMax.to('#layer-start', 1, {delay: 0, autoAlpha: 0, ease: Sine.easeInOut});
-    TweenMax.to('#path_a', .5, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
-    TweenMax.to('#path_j', .5, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
-    TweenMax.delayedCall(.5, function () {
-
-        setBar(1);
-
-        if (checkLoad() && initialSlideLoaded) {
-            // TweenMax.set(['html', 'body'], {overflow: 'visible'});
-
-            // TweenMax.to(itemContainer, .63, {display: 'block', opacity: 1, ease: Sine.easeOut});
-
-            pswpElement.style.display = 'block';
-            TweenMax.to(pswpElement, .5, {
-                delay: .1, opacity: 1, ease: Cubic.easeOut, onComplete: function () {
-                    TweenMax.set(itemContainer, {delay: .5, display: 'block', opacity: 1});
-                    startAutoSlide();
-                }
-            });
-        } else {
-            TweenMax.delayedCall(.2, checkLoad)
+    TweenMax.to(menueBar, .5, {
+        top: 0, ease: Sine.easeOut, onComplete: function () {
+            setBar(1);
         }
+    });
 
-        isInitial = false;
+    TweenMax.to('#layer-start', .5, {delay: 0, autoAlpha: 0, ease: Sine.easeIn});
+    TweenMax.to('#path_a', .3, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
+    TweenMax.to('#path_j', .3, {delay: 0, drawSVG: '0% 0%', ease: Cubic.easeOut});
 
-    })
+    TweenMax.set(['html', 'body'], {overflow: 'visible'});
+    TweenMax.to(itemContainer, .5, {display: 'block', opacity: 1, ease: Sine.easeOut});
+    setLightboxHeight();
+    isInitial = false;
 }
 
 var mobile = isMobile.any;

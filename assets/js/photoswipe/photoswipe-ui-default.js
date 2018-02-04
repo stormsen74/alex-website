@@ -64,8 +64,8 @@ var PhotoSwipeUI_Default =
 
 			closeEl:true,
 			captionEl: true,
-			fullscreenEl: true,
-			zoomEl: true,
+			fullscreenEl: false,
+			zoomEl: false,
 			shareEl: false,
 			counterEl: true,
 			arrowEl: true,

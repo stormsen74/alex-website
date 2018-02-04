@@ -77,33 +77,21 @@ body {
 
 #kontakt {
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0); }
+  opacity: .5; }
   #kontakt.hover {
-    border: 1px dashed rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
+    opacity: 1; }
   #kontakt.active {
     cursor: default;
-    border: 1px dashed rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
+    opacity: 1; }
 
 #about {
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0); }
+  opacity: .5; }
   #about.hover {
-    border: 1px dashed rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
+    opacity: 1; }
   #about.active {
     cursor: default;
-    border: 1px dashed rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23);
-    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.23); }
+    opacity: 1; }
 
 a {
   color: #101010; }
@@ -177,6 +165,14 @@ img {
 .item {
   cursor: pointer; }
 
+.item img {
+  position: absolute;
+  display: inline-block;
+  height: auto !important;
+  width: 120%;
+  margin-left: -10%;
+  opacity: 1; }
+
 .overlay {
   font-family: 'Open Sans Condensed', sans-serif;
   position: absolute;
@@ -199,6 +195,7 @@ img {
   right: 0;
   width: 435px;
   text-align: left;
+  background-color: #f7f7f7;
   -webkit-transition: width 600ms cubic-bezier(1, 0, 0, 1);
   /* Safari */
   transition: width 600ms cubic-bezier(1, 0, 0, 1); }
@@ -215,6 +212,7 @@ img {
   left: 0;
   width: 555px;
   text-align: left;
+  background-color: #f7f7f7;
   -webkit-transition: width 600ms cubic-bezier(1, 0, 0, 1);
   /* Safari */
   transition: width 600ms cubic-bezier(1, 0, 0, 1); }
