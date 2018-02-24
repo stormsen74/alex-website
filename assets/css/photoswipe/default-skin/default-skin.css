@@ -259,7 +259,6 @@ a.pswp__share--download:hover {
 .pswp__caption__center {
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: left;
-  max-width: 420px;
   margin-left: 20px;
   font-size: 1.6rem;
   padding: 10px;
@@ -270,7 +269,8 @@ a.pswp__share--download:hover {
 
 /* Fake caption element, used to calculate height of next/prev image */
 .pswp__caption--fake {
-  visibility: hidden; }
+  visibility: hidden;
+  display: none; }
 
 /*
 
@@ -400,7 +400,7 @@ a.pswp__share--download:hover {
 /* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
 .pswp__ui--fit .pswp__top-bar,
 .pswp__ui--fit .pswp__caption {
-  background-color: rgba(247, 247, 247, 0.3);
+  background-color: rgba(247, 247, 247, 0.4);
   color: #101010; }
 
 /* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */

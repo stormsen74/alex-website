@@ -1,0 +1,67 @@
+Title: 3D Comenius
+
+----
+
+Year: 2014
+
+----
+
+Category: project
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: 3d-comenius-1.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: 3d-comenius-2.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: 3d-comenius-3.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: 3d-comenius-4.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: 3d-comenius-5.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: 3d-comenius-6.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: 3d-comenius-7.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner

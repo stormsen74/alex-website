@@ -1,0 +1,27 @@
+Title: Visionita
+
+----
+
+Year: 2014
+
+----
+
+Category: object
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: visionita.jpg
+  width: "1920"
+  height: "1080"
+  title: Visionita
+  description: |
+    Kinderbett zweistöckig
+    Material: MDF durchgefärbt, geölt
+  _fieldset: imageBanner

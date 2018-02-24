@@ -1,0 +1,48 @@
+Title: Hingucker
+
+----
+
+Year: 2013
+
+----
+
+Category: project
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: hingucker-1.jpg
+  width: "1920"
+  height: "1080"
+  title: Hingucker-Workshop
+  description: |
+    Herstellung eines Sitzmöbels für den öffentlichen Raum mit Jugendlichen
+    Ort: Osdorfer Born
+    In Zusammenarbeit mit JAS e.V.
+  _fieldset: imageBanner
+- 
+  image: hingucker-2.jpg
+  width: "1920"
+  height: "1080"
+  title: Hingucker-Workshop
+  description: |
+    Herstellung eines Sitzmöbels für den öffentlichen Raum mit Jugendlichen
+    Ort: Osdorfer Born
+    In Zusammenarbeit mit JAS e.V.
+  _fieldset: imageBanner
+- 
+  image: hingucker-3.jpg
+  width: "1920"
+  height: "1080"
+  title: Hingucker-Workshop
+  description: |
+    Herstellung eines Sitzmöbels für den öffentlichen Raum mit Jugendlichen
+    Ort: Osdorfer Born
+    In Zusammenarbeit mit JAS e.V.
+  _fieldset: imageBanner

@@ -1,0 +1,60 @@
+Title: Niebuhr Hochhaus - Öffentliche Gestaltungsberatung
+
+----
+
+Year: 2012
+
+----
+
+Category: project
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: niehbuhr-5.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: niehbuhr-4.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: niehbuhr-1.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: niehbuhr-6.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: niehbuhr-2.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner
+- 
+  image: niehbuhr-7.jpg
+  width: "1920"
+  height: "1080"
+  title: ""
+  description: ""
+  _fieldset: imageBanner

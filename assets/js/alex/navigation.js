@@ -111,7 +111,6 @@ function onClickMobileSelect(e) {
 
 function fadeUnselectedItems(selector) {
     var all = Array.from(itemContainer.querySelectorAll('.mix'));
-    // var select = Array.from(itemContainer.querySelectorAll(selector));
 
     all.forEach(function (element) {
         if (!element.classList.contains(selector.substr(1))) {
@@ -164,16 +163,30 @@ function onClickKontakt(e) {
 
 function viewKontakt() {
     setContentHeight();
+    if (window.innerWidth > window.innerHeight && mobile) {
+        TweenMax.set(scrollContainer, {height: 200});
+        draggable[0].applyBounds({minX: 0, minY: -50, maxX: 0, maxY: 10});
+        TweenMax.set(imprintButton, {display: 'none'})
+    } else {
+        TweenMax.set(imprintButton, {display: 'block'})
+    }
 
     kontaktButton.classList.remove('hover');
     kontaktButton.classList.add('active');
 
     TweenMax.set(contentKontakt, {right: '-100%', display: 'block', opacity: 1})
-    TweenMax.to(contentKontakt, .5, {right: '0%', ease: Cubic.easeOut})
+    TweenMax.to(contentKontakt, .5, {
+        right: '0%', ease: Cubic.easeOut, onComplete: function () {
+            if (mobileNav) {
+                TweenMax.set('.container', {display: 'none'})
+            }
+        }
+    });
 
     aboutClose(.25);
     TweenMax.set('#scroll-kontakt', {y: 20});
     checkContentOverflow();
+
 }
 
 function onCloseKontakt() {
@@ -189,8 +202,12 @@ function kontaktClose(t) {
     TweenMax.to(contentKontakt, t, {
         right: '-100%', ease: Cubic.easeInOut, onComplete: function () {
             TweenMax.set(contentKontakt, {display: 'none'})
+            closeImprint();
         }
-    })
+    });
+
+    TweenMax.set('.container', {display: 'block'})
+
 }
 
 // CONTENT->ABOUT

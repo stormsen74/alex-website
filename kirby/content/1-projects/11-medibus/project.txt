@@ -1,0 +1,58 @@
+Title: Medibus
+
+----
+
+Year: 2017
+
+----
+
+Category: model
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: medibus.jpg
+  width: "1920"
+  height: "1080"
+  title: Medibus
+  description: |
+    Modell einer fahrenden Arztpraxis
+    Auftraggeber: Cisco
+    realisiert in Zusammenarbeit mit Marcel Hahn und Martin Malich
+  _fieldset: imageBanner
+- 
+  image: medibus-2.jpg
+  width: "1920"
+  height: "1080"
+  title: Medibus
+  description: |
+    Modell einer fahrenden Arztpraxis
+    Auftraggeber: Cisco
+    realisiert in Zusammenarbeit mit Marcel Hahn und Martin Malich
+  _fieldset: imageBanner
+- 
+  image: medibus-3.jpg
+  width: "1920"
+  height: "1080"
+  title: Medibus
+  description: |
+    Modell einer fahrenden Arztpraxis
+    Auftraggeber: Cisco
+    realisiert in Zusammenarbeit mit Marcel Hahn und Martin Malich
+  _fieldset: imageBanner
+- 
+  image: medibus-4.jpg
+  width: "1920"
+  height: "1080"
+  title: Medibus
+  description: |
+    Modell einer fahrenden Arztpraxis
+    Auftraggeber: Cisco
+    realisiert in Zusammenarbeit mit Marcel Hahn und Martin Malich
+  _fieldset: imageBanner

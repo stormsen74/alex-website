@@ -1,0 +1,39 @@
+Title: Raub Schrank
+
+----
+
+Year: 2014
+
+----
+
+Category: object
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: raub-schrank-1.jpg
+  width: "1920"
+  height: "1080"
+  title: Raub Schrank
+  description: 'Material: Kiefernsperrholz gebeizt, lackiert'
+  _fieldset: imageBanner
+- 
+  image: raub-schrank-2.jpg
+  width: "1920"
+  height: "1080"
+  title: Raub Schrank
+  description: 'Material: Kiefernsperrholz gebeizt, lackiert'
+  _fieldset: imageBanner
+- 
+  image: raub-schrank-3.jpg
+  width: "1920"
+  height: "1080"
+  title: Raub Schrank
+  description: 'Material: Kiefernsperrholz gebeizt, lackiert'
+  _fieldset: imageBanner

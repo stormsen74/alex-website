@@ -1,0 +1,109 @@
+Title: Esso Häuser
+
+----
+
+Year: 2012
+
+----
+
+Category: project
+
+----
+
+Text: Öffentliche Gestaltungsberatung
+
+----
+
+Builder: 
+
+- 
+  image: esso-papier-1.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: |
+    Einladungsflyer für Gestaltungsworkshop mit Anwohnern
+    Zusammenarbeit mit Charlotte Dieckmann
+  _fieldset: imageBanner
+- 
+  image: esso-papier-2.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: Papiermodell aus Einladungsflyer
+  _fieldset: imageBanner
+- 
+  image: esso-papier-3.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: >
+    Papiermodell von Bewohnern der
+    Esso-Häuser gestaltet.
+  _fieldset: imageBanner
+- 
+  image: esso-papier-4.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: >
+    Papiermodell von Bewohnern der
+    Esso-Häuser gestaltet.
+  _fieldset: imageBanner
+- 
+  image: esso1.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: |
+    Porenbeton-Modell für Gestaltungsworkshop
+    Zusammenarbeit mit Charlotte Dieckmann
+  _fieldset: imageBanner
+- 
+  image: esso2.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: Porenbeton-Modell
+  _fieldset: imageBanner
+- 
+  image: esso3.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: Porenbeton-Modell während des Workshops
+  _fieldset: imageBanner
+- 
+  image: esso4.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: >
+    Beton-Modell mit darstellung der Ideen
+    aus dem Workshop
+  _fieldset: imageBanner
+- 
+  image: esso5.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: >
+    Beton-Modell mit darstellung der Ideen
+    aus dem Workshop
+  _fieldset: imageBanner
+- 
+  image: esso6.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: >
+    Ad-ons für die Nutzung des Betonmodells
+    als Grill
+  _fieldset: imageBanner
+- 
+  image: esso7.jpg
+  width: "1920"
+  height: "1080"
+  title: Esso Häuser
+  description: Grillfest mit Anwohnern
+  _fieldset: imageBanner

@@ -1,0 +1,73 @@
+Title: Lebendige Alster
+
+----
+
+Year: 
+
+----
+
+Category: model
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: dw__v4a1740_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Lebendige Alster
+  description: |
+    Diorama zur Darstellung von Maßnahmen für die Renaturierung der Fleete
+    Auftraggeber: NABU
+    Entwurf: Studio Urbane Landschaften
+    Material: Birkensperrholz und Polyamid lasergesintert
+  _fieldset: imageBanner
+- 
+  image: dw__v4a1759_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Lebendige Alster
+  description: |
+    Diorama zur Darstellung von Maßnahmen für die Renaturierung der Fleete
+    Auftraggeber: NABU
+    Entwurf: Studio Urbane Landschaften
+    Material: Birkensperrholz und Polyamid lasergesintert
+  _fieldset: imageBanner
+- 
+  image: dw__v4a1762_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Lebendige Alster
+  description: |
+    Diorama zur Darstellung von Maßnahmen für die Renaturierung der Fleete
+    Auftraggeber: NABU
+    Entwurf: Studio Urbane Landschaften
+    Material: Birkensperrholz und Polyamid lasergesintert
+  _fieldset: imageBanner
+- 
+  image: dw__v4a1782_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Lebendige Alster
+  description: |
+    Diorama zur Darstellung von Maßnahmen für die Renaturierung der Fleete
+    Auftraggeber: NABU
+    Entwurf: Studio Urbane Landschaften
+    Material: Birkensperrholz und Polyamid lasergesintert
+  _fieldset: imageBanner
+- 
+  image: dw__v4a1802_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Lebendige Alster
+  description: |
+    Diorama zur Darstellung von Maßnahmen für die Renaturierung der Fleete
+    Auftraggeber: NABU
+    Entwurf: Studio Urbane Landschaften
+    Material: Birkensperrholz und Polyamid lasergesintert
+  _fieldset: imageBanner

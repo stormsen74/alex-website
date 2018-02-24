@@ -1,0 +1,54 @@
+Title: Entropie
+
+----
+
+Year: 2012
+
+----
+
+Category: project
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: entropie-1.jpg
+  width: "1920"
+  height: "1080"
+  title: Kinderinsel Entropie
+  description: |
+    Installation für die Kinderbetreuung an der Absolventenausstellung der Hochschule für bildende Künste
+    Material: 4m großer Ring aus PVC-Plane, 1cbm Ton
+  _fieldset: imageBanner
+- 
+  image: entropie-2.jpg
+  width: "1920"
+  height: "1080"
+  title: Kinderinsel Entropie
+  description: |
+    Installation für die Kinderbetreuung an der Absolventenausstellung der Hochschule für bildende Künste
+    Material: 4m großer Ring aus PVC-Plane, 1cbm Ton
+  _fieldset: imageBanner
+- 
+  image: entropie-3.jpg
+  width: "1920"
+  height: "1080"
+  title: Kinderinsel Entropie
+  description: |
+    Installation für die Kinderbetreuung an der Absolventenausstellung der Hochschule für bildende Künste
+    Material: 4m großer Ring aus PVC-Plane, 1cbm Ton
+  _fieldset: imageBanner
+- 
+  image: entropie-4.jpg
+  width: "1920"
+  height: "1080"
+  title: Kinderinsel Entropie
+  description: |
+    Installation für die Kinderbetreuung an der Absolventenausstellung der Hochschule für bildende Künste
+    Material: 4m großer Ring aus PVC-Plane, 1cbm Ton
+  _fieldset: imageBanner

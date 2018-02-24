@@ -84,6 +84,15 @@ body {
     cursor: default;
     opacity: 1; }
 
+#bounds-kontakt {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 10px;
+  height: 10px;
+  background-color: #8DAE28;
+  opacity: .3; }
+
 #about {
   cursor: pointer;
   opacity: .5; }
@@ -92,6 +101,42 @@ body {
   #about.active {
     cursor: default;
     opacity: 1; }
+
+.about-image {
+  position: relative;
+  float: right;
+  width: 250px;
+  margin-left: 15px;
+  margin-bottom: 15px; }
+  @media screen and (max-width: 600px) {
+    .about-image {
+      float: none;
+      width: 90%;
+      margin-left: 0px; } }
+
+.imprint {
+  position: absolute;
+  top: 500px; }
+  .imprint p {
+    margin-top: 5px; }
+  .imprint .italic {
+    text-decoration: underline; }
+
+.imprint-button {
+  cursor: pointer;
+  opacity: .5;
+  display: none; }
+
+.imprint-text {
+  margin-top: 30px;
+  font-size: 1rem;
+  padding-right: 1.3rem;
+  opacity: 0; }
+
+#bauerplaner-logo {
+  background: url("../../assets/img/bauerplaner-logo.png") no-repeat;
+  width: 180px;
+  height: 31px; }
 
 a {
   color: #101010; }
@@ -118,8 +163,7 @@ a {
   background: url("../../assets/img/toggle-icon.png");
   width: 26px;
   height: 25px;
-  margin-top: 12px;
-  left: -20px;
+  margin-top: -33px;
   display: none; }
   @media screen and (max-width: 600px) {
     .toggle-icon {
@@ -176,15 +220,17 @@ img {
 .overlay {
   font-family: 'Open Sans Condensed', sans-serif;
   position: absolute;
-  bottom: 0;
+  bottom: 35%;
   width: 100%;
   height: auto;
-  background-color: rgba(247, 247, 247, 0.63);
   opacity: 1;
-  color: #101010;
+  color: #ffffff;
+  text-shadow: 0 0 3px #101010;
   font-size: 1.3rem;
   text-align: left;
   padding: 10px; }
+  .overlay:focus, .overlay:hover {
+    color: #101010; }
 
 #content-kontakt {
   overflow: hidden;

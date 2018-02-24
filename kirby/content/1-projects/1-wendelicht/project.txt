@@ -6,34 +6,48 @@ Year: 2015
 
 ----
 
-Category: model
+Category: object
 
 ----
 
-Text: In Zusammenarbeit mit Paul Schatz Stiftung Basel
+Text: 
 
 ----
 
 Builder: 
 
 - 
-  image: 1920x1080.jpg
+  image: wendelicht-5.jpg
+  width: "1920"
+  height: "1080"
+  title: Wendelicht
+  description: |
+    Prototyp einer umstülpbaren Deckenleuchte
+    Zusammenarbeit mit Paul Schatz Stiftung Basel
+    Material: Aluminium eloxiert und gepulvert
+  _fieldset: imageBanner
+- 
+  image: wendelicht-4.jpg
+  width: "1920"
+  height: "1080"
+  title: Wendelicht
+  description: >
+    in dieser Position als indirekte
+    Beleuchtung
+  _fieldset: imageBanner
+- 
+  image: img_0625.jpg
+  width: "1636"
+  height: "1080"
+  title: Wendelicht
+  description: >
+    Inspiriert durch den umstülpbaren
+    Würfel von Paul Schatz
+  _fieldset: imageBanner
+- 
+  image: image_1360x903.jpg
   title: Wendelicht
   description: Funktionsmodell des Federmechanismus
   _fieldset: imageBanner
-  width: "1920"
+  width: "1625"
   height: "1080"
-- 
-  image: img_0625.jpg
-  width: "1920"
-  height: "1080"
-  title: Prototyp
-  description: liegt auf dem Tisch
-  _fieldset: imageBanner
-- 
-  image: dsc_1119-low.jpg
-  width: "3264"
-  height: "4928"
-  title: Wendelicht
-  description: Leuchtenkörper ×
-  _fieldset: imageBanner

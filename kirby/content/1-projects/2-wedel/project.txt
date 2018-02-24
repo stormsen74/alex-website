@@ -1,0 +1,98 @@
+Title: Wohnsiedlung Wedel
+
+----
+
+Year: 2017
+
+----
+
+Category: model
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: wertgrund_detail_04_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: wertgrund_detail_02_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: wertgrund_detail_07_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: wertgrund_detail_12_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: wertgrund_front_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: wertgrund_links_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: wertgrund_rechts_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: wertgrund_rueck_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Arbeitsmodell
+  description: |
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz
+    Maßstab 1:200
+  _fieldset: imageBanner

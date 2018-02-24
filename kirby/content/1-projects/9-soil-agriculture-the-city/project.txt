@@ -1,0 +1,36 @@
+Title: Soil
+
+----
+
+Year: 2012
+
+----
+
+Category: project
+
+----
+
+Text: Agriculture & The city
+
+----
+
+Builder: 
+
+- 
+  image: agriculture.jpg
+  width: "1920"
+  height: "1080"
+  title: 'Soil- Agriculture & The city'
+  description: |
+    Entwurf von Pflanzgefäßen für urbanes Gärtnern im Büroalltag
+    Material: Stahlblech weiss emailliert
+  _fieldset: imageBanner
+- 
+  image: agriculture-2.jpg
+  width: "1920"
+  height: "1080"
+  title: 'Soil- Agriculture & The city'
+  description: |
+    Ausstellungskatalog
+    Agriculture and the city
+  _fieldset: imageBanner

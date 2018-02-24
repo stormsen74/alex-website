@@ -1,0 +1,73 @@
+Title: Wohnsiedlung Wedel II
+
+----
+
+Year: 2017
+
+----
+
+Category: model
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: 02-wertgrund_02_detail_02_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Präsentationsmodell
+  description: |
+    Entwurf: Blauraum Architekten
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz und Lärchenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: 03-wertgrund_02_detail_03_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Präsentationsmodell
+  description: |
+    Entwurf: Blauraum Architekten
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz und Lärchenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: 04-wertgrund_02_detail_04_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Präsentationsmodell
+  description: |
+    Entwurf: Blauraum Architekten
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz und Lärchenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: 09-wertgrund_02_detail_09_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Präsentationsmodell
+  description: |
+    Entwurf: Blauraum Architekten
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz und Lärchenholz
+    Maßstab 1:200
+  _fieldset: imageBanner
+- 
+  image: 15-wertgrund_02_oben_72dpi.jpg
+  width: "1920"
+  height: "1080"
+  title: Präsentationsmodell
+  description: |
+    Entwurf: Blauraum Architekten
+    Auftraggeber: Wertgrund WohnSelect
+    Material: Tannenholz und Lärchenholz
+    Maßstab 1:200
+  _fieldset: imageBanner

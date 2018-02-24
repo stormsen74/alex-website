@@ -41,7 +41,8 @@ var buildGallery = function (_images, type) {
 
     var items = [];
     for (var i = 0; i < _images.length; i++) {
-        var text = '<div>' + _images[i][3] + '</div><div style="font-size: 1.2rem">' + _images[i][4] + '</div>';
+
+        var text = '<div>' + _images[i][3] + '</div><div style="font-size: 1.2rem">' + _images[i][4].replace(/\n/g, "<br/>") + '</div>';
         // console.log('-', _images[i][2][0], _images[i][2][1]);
         var o = {
             src: _images[i][0] + "/" + _images[i][1],
@@ -104,8 +105,17 @@ var buildGallery = function (_images, type) {
 
 
     gallery.init();
+
     galleryIsOpen = true;
     TweenMax.set(['html', 'body'], {overflow: 'hidden'});
+    TweenMax.set(['.pswp__caption'], {opacity: 1});
+
+    TweenMax.delayedCall(.05, function () {
+        gallery.updateSize(true);
+    });
+
     hideMobileSelect();
     setLightboxHeight();
+    kontaktClose();
+    aboutClose();
 };

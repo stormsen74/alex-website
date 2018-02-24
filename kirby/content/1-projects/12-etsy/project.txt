@@ -1,0 +1,28 @@
+Title: Etsy
+
+----
+
+Year: 2013
+
+----
+
+Category: object
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: etsy_stand_stilwerk-i.jpg
+  width: "1920"
+  height: "1080"
+  title: Messestand Etsy
+  description: |
+    Auftraggeber: Etsy
+    Material: Aluminium gepulvert
+    realisiert in Zusammenarbeit mit Till Richter
+  _fieldset: imageBanner

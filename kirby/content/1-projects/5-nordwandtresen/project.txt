@@ -1,0 +1,38 @@
+Title: Nordwandtresen
+
+----
+
+Year: 2013
+
+----
+
+Category: object
+
+----
+
+Text: 
+
+----
+
+Builder: 
+
+- 
+  image: nordwandtresen-2.jpg
+  width: "1920"
+  height: "1080"
+  title: Nordwandtresen
+  description: |
+    Auftraggeber: Nordwandhalle
+    Modularer Tresen, Stahlgestell mit Lärche
+    realisiert in Zusammenarbeit mit Till Richter
+  _fieldset: imageBanner
+- 
+  image: nordwandtresen-1.jpg
+  width: "1920"
+  height: "1080"
+  title: Nordwandtresen
+  description: |
+    Auftraggeber: Nordwandhalle
+    Modularer Tresen, Stahlgestell mit Lärche
+    realisiert in Zusammenarbeit mit Till Richter
+  _fieldset: imageBanner

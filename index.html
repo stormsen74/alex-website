@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <meta name="keywords" content="Design, Gestaltung, 3D-Druck, Öffentliche Gestaltungsberatung, Coworking, Modellbau, Prototypen, Handwerk, Hamburg, Holz">
+    <meta name="keywords" content="Alexander Joly, Design, Gestaltung, 3D-Druck, Öffentliche Gestaltungsberatung, Coworking, Modellbau, Prototypen, Handwerk, Hamburg, Holz">
     <meta name="description" content=""/>
     <meta name="robots" content="FOLLOW">
     <meta name="revisit-after" CONTENT="30 Days">
@@ -14,7 +14,6 @@
     <link href="assets/css/mixitup/style.css" rel="stylesheet"/>
     <link href="assets/css/core.css" rel="stylesheet"/>
 
-    <!--<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
 
     <!--==========photo-swipe==========-->
@@ -38,8 +37,6 @@
 
     <title>Alexander Joly</title>
 
-
-    <style></style>
 
 </head>
 <body>
@@ -68,10 +65,13 @@ L 315.45 21"/>
 
     <div class="select-options">
         <!--set active class -->
-        <div class="nav-item desktop-select active" data-type="all">Übersicht</div>
-        <div class="nav-item desktop-select" data-type=".model">Modelle</div>
-        <div class="nav-item desktop-select" data-type=".object">Objekte</div>
-        <div class="nav-item desktop-select" data-type=".project">Projekte</div>
+        <div id="options" style="display: inline-block; position: relative">
+
+            <div class="nav-item desktop-select active" data-type="all">Übersicht</div>
+            <div class="nav-item desktop-select" data-type=".model">Modelle</div>
+            <div class="nav-item desktop-select" data-type=".object">Objekte</div>
+            <div class="nav-item desktop-select" data-type=".project">Projekte</div>
+        </div>
         <div id="toggleIcon" class="nav-item toggle-icon"></div>
         <div id="kontakt" class="nav-item" style="margin-left: 1.5rem">Kontakt</div>
     </div>
@@ -89,23 +89,7 @@ L 315.45 21"/>
 
 <!--==========mixitup-container==========-->
 
-<div class="container" style="margin-top: 60px; display: block">
-    <!--<div class="item mix project soft-shadow">-->
-    <!--<img src="assets/image_1360x903.jpg">-->
-    <!--<div class="overlay soft-inset">-->
-    <!--<div class="description">-->
-    <!--<div class="item-title">Wendelicht</div>-->
-    <!--<div class="item-text">Zusammenarbeit mit Max Mustermann</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="area"></div>-->
-    <!--</div>-->
-
-    <!--added in core.js!-->
-    <!--<div class="gap"></div>-->
-    <!--<div class="gap"></div>-->
-    <!--<div class="gap"></div>-->
-</div>
+<div class="container" style="margin-top: 60px; display: block"></div>
 
 <!--==========lightbox==========-->
 
@@ -176,7 +160,7 @@ L 315.45 21"/>
 
 <div id="content-kontakt" class="soft-shadow">
     <div class="content-back-layer"></div>
-    <div id="bounds-kontakt" style="position: absolute; left:0; top:20px; width: 10px; height: 10px"></div>
+    <div id="bounds-kontakt" style=""></div>
     <div id="scroll-kontakt" class="content-box">
         <div id="kontakt-adress"></div>
         <div style="margin-top: .3rem"></div>
@@ -186,8 +170,55 @@ L 315.45 21"/>
         <div style="margin-top: 1rem"></div>
         <div id="kontakt-werkstatt"></div>
         <div style="margin-top: .3rem"></div>
+        <div id="bauerplaner-logo"></div>
         <a id="kontakt-url" class="url-hover"></a>
         <div style="margin-bottom: 1rem"></div>
+        <div class="imprint" id="imprint">
+            <div class="imprint-button" id="imprint-button">impressum</div>
+            <div class="imprint-text" id="imprint-text">
+                <p class="italic">Anschrift:</p>
+                Alexander Joly<br>Schadesweg 27a<br>20537 Hamburg<br/>
+                <p class="italic"> E-Mail:</p>
+                aj@alexanderjoly.de<br/>
+                <p class="italic">Mobil:</p>
+                +49 178 873 0876<br/>
+                <p class="italic">USt-IdNr.:</p>
+                DE 444 4444 444<br/><br/>
+                <p class="italic">Angaben gemäß § 5 TMG:</p>
+                Haftungsausschluss (Disclaimer)<br/><br/>
+                <p>Haftung für Inhalte
+                <p/>
+                <p>
+                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen
+                    Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
+                    übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die
+                    auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+                    Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist
+                    jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden
+                    von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+                </p>
+                <p>Haftung für Links
+                <p/>
+                <p>
+                    Wir übernehmen keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind
+                    ausschließlich deren Betreiber verantwortlich.
+                    Der Betreiber der Seiten von www.goldfrische.de hat keinerlei Einfluss auf die aktuelle und zukünftige
+                    Gestaltung der verlinkten Seiten und distanziert sich daher hiermit ausdrücklich von allen inhaltlichen
+                    Änderungen, die nach der Linksetzung auf den verlinkten Seiten vorgenommen werden.
+                </p>
+                <p>Urheberrecht
+                <p/>
+                <p>
+                    Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
+                    Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+                    Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                    Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+                    Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter
+                    beachtet.
+                </p>
+
+            </div>
+        </div>
     </div>
     <div class="content-front-layer"></div>
     <div id="close-kontakt" class="close-button"></div>
@@ -198,10 +229,8 @@ L 315.45 21"/>
     <div class="content-back-layer"></div>
     <div id="bounds-about" style="position: absolute; left:0; top:20px; width: 10px; height: 10px"></div>
     <div id="scroll-about" class="content-box">
-        <div id="about-text"></div>
-        <div style="margin-top: 1rem"></div>
-        <img id="about-image" style="position: relative" src="">
-        <div style="margin-bottom: 1rem"></div>
+        <p id="about-text"></p>
+        <div style="margin-bottom: 3rem"></div>
     </div>
     <div class="content-front-layer"></div>
     <div id="close-about" class="close-button"></div>

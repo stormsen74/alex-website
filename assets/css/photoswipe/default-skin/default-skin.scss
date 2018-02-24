@@ -337,6 +337,7 @@ a.pswp__share--download {
   width: 100%;
   min-height: 44px;
   background-color: #f7f7f7;
+  //display: none;
 
   small {
     font-size: 11px;
@@ -348,7 +349,7 @@ a.pswp__share--download {
   //font-family: 'Ubuntu', sans-serif;
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: left;
-  max-width: 420px;
+  //max-width: 420px;
   //margin: 0 auto;
   margin-left: 20px;
   font-size: 1.6rem;
@@ -363,6 +364,7 @@ a.pswp__share--download {
 /* Fake caption element, used to calculate height of next/prev image */
 .pswp__caption--fake {
   visibility: hidden;
+  display: none;
 }
 
 /*
@@ -533,7 +535,7 @@ a.pswp__share--download {
 .pswp__ui--fit {
   .pswp__top-bar,
   .pswp__caption {
-    background-color: rgba(247, 247, 247, 0.3);
+    background-color: rgba(247, 247, 247, 0.4);
     color: #101010;
   }
 }

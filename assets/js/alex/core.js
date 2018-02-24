@@ -49,7 +49,7 @@ function createItem(itemData, index) {
     // TweenMax.delayedCall(1, function () {console.log(image.naturalWidth)})
 
     var overlay = document.createElement("div");
-    overlay.classList.add('overlay', 'soft-inset');
+    overlay.classList.add('overlay');
 
     var description = document.createElement("div");
     description.classList.add('description');
@@ -111,21 +111,27 @@ function initItemListener() {
 
         area.addEventListener('click', function (event) {
             buildGallery(event.target.parentElement.images)
+
         });
 
         if (!mobile) {
             area.addEventListener('mouseover', function (event) {
                 TweenMax.to(this.itemData.overlay, .4, {
                     // height: '100%',
-                    backgroundColor: 'rgba(247, 247, 247, 0.85)',
+                    color: '#101010',
+                    textShadow: '0 0 0px #101010',
                     ease: Cubic.easeOut
                 });
 
-                TweenMax.to(this.itemData.image, .4, {
-                    opacity: .65,
-                    // '-webkit-filter': 'blur(2px)',
-                    // 'filter': 'blur(2px)',
-                    ease: Sine.easeOut
+                TweenMax.to(this.itemData.image, .5, {
+                    opacity: .45,
+                    ease: Sine.easeInOut
+                });
+
+                TweenMax.to(this.itemData.image, .6, {
+                    '-webkit-filter': 'blur(1px)',
+                    'filter': 'blur(1px)',
+                    ease: Power3.easeOut
                 });
 
                 // TweenMax.to(this.itemData.description, .4, {
@@ -136,15 +142,16 @@ function initItemListener() {
             area.addEventListener('mouseout', function (event) {
                 TweenMax.to(this.itemData.overlay, .4, {
                     // height: this.itemData.overlay_height,
-                    backgroundColor: 'rgba(247, 247, 247, 0.63)',
+                    color: '#ffffff',
+                    textShadow: '0 0 3px #101010',
                     ease: Sine.easeOut
                 });
 
-                TweenMax.to(this.itemData.image, .4, {
+                TweenMax.to(this.itemData.image, .5, {
                     opacity: 1,
-                    // '-webkit-filter': 'blur(0px)',
-                    // 'filter': 'blur(0px)',
-                    ease: Sine.easeOut
+                    '-webkit-filter': 'blur(0px)',
+                    'filter': 'blur(0px)',
+                    ease: Sine.easeInOut
                 });
 
                 // TweenMax.to(this.itemData.description, .4, {
@@ -181,13 +188,18 @@ function onRecieveKontaktData(response) {
     createKontakt(JSON.parse(response));
 }
 
+var draggable;
+var scrollContainer;
 function createKontakt(kontaktData) {
 
     // console.log(kontaktData[0]);
 
-    var scrollContainer = document.getElementById('scroll-kontakt');
+    scrollContainer = document.getElementById('scroll-kontakt');
     TweenMax.set(scrollContainer, {y: 20});
-    Draggable.create(scrollContainer, {type: "y", bounds: '#bounds-kontakt', edgeResistance: .75, throwProps: true});
+    var bounds = {minX: 0, minY: -10, maxX: 0, maxY: 10};
+    // var bounds = {minX: 0, minY: -1300, maxX: 0, maxY: 10};
+    // minX: 0, minY: -imprintText.getBoundingClientRect().height, maxX: 0, maxY: 10
+    draggable = Draggable.create(scrollContainer, {type: "y", bounds: bounds, edgeResistance: .75, throwProps: true});
     scrollContainer.addEventListener('touchmove', function (e) {
         e.preventDefault();
     }, false);
@@ -238,7 +250,10 @@ function createAbout(aboutData) {
         e.preventDefault();
     }, false);
 
-    document.getElementById('about-text').innerHTML = aboutData[0]['text'].replace(/\n/g, "<br/>");
+
+    var aboutText = aboutData[0]['text'].replace(/\n/g, "<br/>")
+    aboutText = aboutText.replace('-image-', '<img id="about-image" class="about-image" src="">')
+    document.getElementById('about-text').innerHTML = aboutText;
     var imagePath = aboutData[0]['path'] + "/" + aboutData[0]['image'];
     document.getElementById('about-image').setAttribute("src", imagePath);
 
@@ -246,11 +261,69 @@ function createAbout(aboutData) {
 
 
 /*--------------------------------------------
+ ~ impressum
+ --------------------------------------------*/
+var kontakt = document.getElementById('content-kontakt');
+var kontaktHeight = kontakt.getBoundingClientRect().height;
+var pinPoint = {y: 450, offset: 75, isSet: false};
+
+var imprint = document.getElementById('imprint');
+var imprintButton = document.getElementById('imprint-button');
+var imprintText = document.getElementById('imprint-text');
+
+imprintButton.addEventListener('mouseover', function (event) {
+    if (!pinPoint.isSet) {
+        TweenMax.to(imprintButton, .4, {opacity: 1, ease: Sine.easeOut});
+    }
+})
+
+imprintButton.addEventListener('mouseout', function (event) {
+    if (!pinPoint.isSet) {
+        TweenMax.to(imprintButton, .4, {opacity: .5, ease: Sine.easeOut});
+    }
+})
+
+function closeImprint() {
+    pinPoint.isSet = false;
+    TweenMax.to(imprintText, .5, {opacity: 0, ease: Power1.easeIn});
+    TweenMax.to(scrollContainer, .5, {y: 10});
+    TweenMax.to(imprint, .5, {
+        top: kontaktHeight - pinPoint.offset, ease: Power2.easeOut, onComplete: function () {
+            checkContentOverflow();
+            draggable[0].applyBounds({minX: 0, minY: -10, maxX: 0, maxY: 10});
+        }
+    });
+    TweenMax.to(imprintButton, .4, {opacity: .5, ease: Sine.easeOut});
+
+
+}
+
+imprintButton.addEventListener('click', function (event) {
+    if (!pinPoint.isSet) {
+        pinPoint.isSet = true;
+        TweenMax.set(scrollContainer, {height: 1800});
+        TweenMax.to(imprintText, .4, {opacity: 1, ease: Sine.easeOut});
+        TweenMax.to(scrollContainer, .4, {y: -335, ease: Power2.easeOut});
+        TweenMax.to(imprint, .4, {
+            top: pinPoint.y - pinPoint.offset, ease: Power2.easeOut, onComplete: function () {
+                // var offset = isLandscape ? 200 : 0;
+                draggable[0].applyBounds({minX: 0, minY: -(imprintText.getBoundingClientRect().height + 200), maxX: 0, maxY: 10});
+            }
+        })
+    } else {
+        closeImprint();
+    }
+
+});
+
+
+/*--------------------------------------------
  ~
  --------------------------------------------*/
 
+var options = document.getElementById('options');
 var scrollAbout = document.getElementById('scroll-about');
-var scrollKontakt = document.getElementById('scroll-kontakt');
+
 var contentAbout = document.getElementById('content-about');
 var contentKontakt = document.getElementById('content-kontakt');
 
@@ -270,12 +343,11 @@ function onOrientationChange(e) {
         aboutClose();
     }
 
-
-    // if (screen.orientation.type == 'landscape-primary') {
-    //     if (mobileNav && isMobileSelect) {
-    //         hideMobileSelect();
-    //     }
-    // }
+    if (screen.orientation.type == 'landscape-primary') {
+        if (mobileNav) {
+            setOptions();
+        }
+    }
 }
 
 
@@ -285,8 +357,13 @@ function onResize(e) {
         setLogo()
     }
 
+
     checkMobile();
     checkContentOverflow();
+
+    if (!mobileNav) {
+        setOptions();
+    }
 
     if (mobileNav && isMobileSelect) {
         hideMobileSelect();
@@ -297,6 +374,11 @@ function onResize(e) {
     setContentHeight();
 
 }
+
+function setOptions() {
+    TweenMax.set(options, {right: (window.innerWidth - 600) * .52})
+}
+
 
 function setLightboxHeight() {
     TweenMax.set(lightbox, {height: window.innerHeight - 60});
@@ -331,15 +413,22 @@ function checkMobile() {
 function checkContentOverflow() {
 
     var diffAbout = window.innerHeight - menueBarSize.defaultHeight - scrollAbout.getBoundingClientRect().height;
-    var diffKontakt = window.innerHeight - menueBarSize.defaultHeight - scrollKontakt.getBoundingClientRect().height;
+    var diffKontakt = window.innerHeight - menueBarSize.defaultHeight - scrollContainer.getBoundingClientRect().height;
 
     diffAbout <= 0 ?
         TweenMax.set('#bounds-about', {height: window.innerHeight - menueBarSize.defaultHeight}) :
         TweenMax.set('#bounds-about', {height: scrollAbout.getBoundingClientRect().height});
 
-    diffKontakt <= 0 ?
-        TweenMax.set('#bounds-kontakt', {height: window.innerHeight - menueBarSize.defaultHeight}) :
-        TweenMax.set('#bounds-kontakt', {height: scrollKontakt.getBoundingClientRect().height});
+    if (!pinPoint.isSet) {
+        if (diffKontakt <= 0) draggable[0].applyBounds({minX: 0, minY: -(window.innerHeight - menueBarSize.defaultHeight), maxX: 0, maxY: 10})
+    }
+
+    kontakt = document.getElementById('content-kontakt');
+    kontaktHeight = kontakt.getBoundingClientRect().height;
+
+    if (!pinPoint.isSet) {
+        if (kontaktHeight > pinPoint.y) TweenMax.set(imprint, {top: kontaktHeight - pinPoint.offset})
+    }
 }
 
 /*--------------------------------------------
@@ -359,6 +448,9 @@ function buildLogo() {
 }
 
 function setBar(state) {
+    if (window.innerWidth > window.innerHeight && window.innerHeight < 450) {
+        TweenMax.set('#logo', {transformOrigin: '-10% 10%', scale: .75})
+    }
 
     if (state == 0) {
         TweenMax.set('#bar-a', {drawSVG: '0% 0%'});
@@ -367,11 +459,19 @@ function setBar(state) {
         TweenMax.to('#bar-a', 1.5, {delay: 0, drawSVG: '0% 100%', ease: Power2.easeInOut});
         TweenMax.to('#bar-j', 1.5, {delay: .3, drawSVG: '0% 100%', ease: Power3.easeInOut});
     }
+    else if (state == 2) {
+        TweenMax.to('#bar-j', .5, {delay: .0, drawSVG: '0% 0%', ease: Power3.easeInOut});
+        TweenMax.to('#bar-a', .5, {delay:.25, drawSVG: '0% 0%', ease: Power2.easeInOut});
+
+        TweenMax.to('#bar-j', 1, {delay: 1, drawSVG: '0% 100%', ease: Power3.easeInOut});
+        TweenMax.to('#bar-a', 1, {delay: .75, drawSVG: '0% 100%', ease: Power2.easeInOut});
+    }
 
 }
 
 
 setBar(0);
+setOptions();
 
 
 function checkLoad() {
