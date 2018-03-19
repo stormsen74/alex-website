@@ -3,6 +3,14 @@ $main-background-color: #f7f7f7;
 $main-text-color: #101010;
 $mobile-navigation-switch: 600px;
 
+@font-face {
+  font-family: 'berthold_akzidenz_grotesk';
+  src: url('../fonts/berthold_akzidenz_grotesk_be_regular-webfont.woff2') format('woff2'),
+  url('../fonts/berthold_akzidenz_grotesk_be_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 //@import "mixitup/reset.css";
 //@import "mixitup/style.css";
 @import "photoswipe/photoswipe.css";
@@ -11,9 +19,10 @@ html,
 body {
   //height: 100%;
   background: $main-background-color;
-  //font-family: 'Ubuntu', sans-serif;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 500;
+  //font-family: 'Open Sans Condensed', sans-serif;
+  //font-family: 'berthold_akzidenz_grotesk';
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
 
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: auto;
@@ -306,10 +315,12 @@ img {
 }
 
 .overlay {
-  //font-family: 'Ubuntu', sans-serif;
-  font-family: 'Open Sans Condensed', sans-serif;
+  //font-family: 'Open Sans Condensed', sans-serif;
+  //font-family: 'berthold_akzidenz_grotesk';
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
   position: absolute;
-  bottom: 35%;
+  bottom: 40%;
   width: 100%;
   height: auto;
   //background-color: rgba(247, 247, 247, .63);
@@ -366,7 +377,9 @@ img {
 }
 
 .content-box {
-  font-family: 'Open Sans Condensed', sans-serif;
+  //font-family: 'Open Sans Condensed', sans-serif;
+  //font-family: 'berthold_akzidenz_grotesk';
+  font-family: 'Source Sans Pro', sans-serif;
   width: 100%;
   //height: auto;
   background-color: $main-background-color;
@@ -418,12 +431,12 @@ img {
 }
 
 .item-title {
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   line-height: 2rem;
 }
 
 .item-text {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.4rem
 }
 

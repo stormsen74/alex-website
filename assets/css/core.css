@@ -1,9 +1,14 @@
 @import url(photoswipe/photoswipe.css);
+@font-face {
+  font-family: 'berthold_akzidenz_grotesk';
+  src: url("../fonts/berthold_akzidenz_grotesk_be_regular-webfont.woff2") format("woff2"), url("../fonts/berthold_akzidenz_grotesk_be_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 html,
 body {
   background: #f7f7f7;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 500;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: grayscale;
@@ -218,9 +223,10 @@ img {
   opacity: 1; }
 
 .overlay {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
   position: absolute;
-  bottom: 35%;
+  bottom: 40%;
   width: 100%;
   height: auto;
   opacity: 1;
@@ -267,7 +273,7 @@ img {
       width: 100%; } }
 
 .content-box {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   width: 100%;
   background-color: #f7f7f7;
   color: #101010;
@@ -310,11 +316,11 @@ img {
   text-align: center; }
 
 .item-title {
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   line-height: 2rem; }
 
 .item-text {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.4rem; }
 
 .area {

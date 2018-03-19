@@ -80,6 +80,17 @@ function createItem(itemData, index) {
 
 function createItems(data) {
 
+    // for (var i = maxImages; i >= 0; i--) {
+    //     reversed.push(data[i])
+    // }
+    // reversed.sort(function(b, a) {
+    //     return a.year - b.year;
+    // });
+    //
+    // for (var j = 0; j < reversed.length; j++) {
+    //     mixer.append(createItem(reversed[j], j), false)
+    // }
+
     maxImages = data.length - 1;
     for (var i = 0; i < data.length; i++) {
         mixer.append(createItem(data[i], i), false)
@@ -117,7 +128,6 @@ function initItemListener() {
         if (!mobile) {
             area.addEventListener('mouseover', function (event) {
                 TweenMax.to(this.itemData.overlay, .4, {
-                    // height: '100%',
                     color: '#101010',
                     textShadow: '0 0 0px #101010',
                     ease: Cubic.easeOut
@@ -133,15 +143,9 @@ function initItemListener() {
                     'filter': 'blur(1px)',
                     ease: Power3.easeOut
                 });
-
-                // TweenMax.to(this.itemData.description, .4, {
-                //     top: '35%',
-                //     ease: Power2.easeInOut
-                // })
             });
             area.addEventListener('mouseout', function (event) {
                 TweenMax.to(this.itemData.overlay, .4, {
-                    // height: this.itemData.overlay_height,
                     color: '#ffffff',
                     textShadow: '0 0 3px #101010',
                     ease: Sine.easeOut
@@ -153,11 +157,6 @@ function initItemListener() {
                     'filter': 'blur(0px)',
                     ease: Sine.easeInOut
                 });
-
-                // TweenMax.to(this.itemData.description, .4, {
-                //     top: '0%',
-                //     ease: Power3.easeInOut
-                // })
             });
         }
     });
@@ -259,7 +258,6 @@ function createAbout(aboutData) {
 
 }
 
-
 /*--------------------------------------------
  ~ impressum
  --------------------------------------------*/
@@ -275,13 +273,13 @@ imprintButton.addEventListener('mouseover', function (event) {
     if (!pinPoint.isSet) {
         TweenMax.to(imprintButton, .4, {opacity: 1, ease: Sine.easeOut});
     }
-})
+});
 
 imprintButton.addEventListener('mouseout', function (event) {
     if (!pinPoint.isSet) {
         TweenMax.to(imprintButton, .4, {opacity: .5, ease: Sine.easeOut});
     }
-})
+});
 
 function closeImprint() {
     pinPoint.isSet = false;
@@ -294,8 +292,6 @@ function closeImprint() {
         }
     });
     TweenMax.to(imprintButton, .4, {opacity: .5, ease: Sine.easeOut});
-
-
 }
 
 imprintButton.addEventListener('click', function (event) {
@@ -327,7 +323,6 @@ var scrollAbout = document.getElementById('scroll-about');
 var contentAbout = document.getElementById('content-about');
 var contentKontakt = document.getElementById('content-kontakt');
 
-
 window.addEventListener("resize", onResize);
 window.addEventListener("orientationchange", onOrientationChange);
 
@@ -350,13 +345,11 @@ function onOrientationChange(e) {
     }
 }
 
-
 function onResize(e) {
 
     if (isInitial) {
         setLogo()
     }
-
 
     checkMobile();
     checkContentOverflow();
@@ -376,9 +369,8 @@ function onResize(e) {
 }
 
 function setOptions() {
-    TweenMax.set(options, {right: (window.innerWidth - 600) * .52})
+    TweenMax.set(options, {right: (window.innerWidth - 600) * .47})
 }
-
 
 function setLightboxHeight() {
     TweenMax.set(lightbox, {height: window.innerHeight - 60});

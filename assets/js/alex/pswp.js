@@ -10,7 +10,6 @@ var lightbox = document.getElementById('lightbox');
 var gallery;
 var galleryIsOpen = false;
 var autoSlide = false;
-// var autoSlideDelay = 4.5;
 
 /*--------------------------------------------
  ~ gallery
@@ -28,7 +27,7 @@ var gallery_options = {
     closeOnVerticalDrag: false
 };
 
-var buildGallery = function (_images, type) {
+var buildGallery = function (_images) {
     // console.log('buildGallery', _images, type)
 
     if (mobile) {
@@ -36,14 +35,28 @@ var buildGallery = function (_images, type) {
         aboutClose(.5);
     }
 
-
     pswpElement.style.display = 'block';
 
     var items = [];
+    var _tempTitle = '';
+    var _tempDescription = '';
+    var text = '';
+
     for (var i = 0; i < _images.length; i++) {
 
-        var text = '<div>' + _images[i][3] + '</div><div style="font-size: 1.2rem">' + _images[i][4].replace(/\n/g, "<br/>") + '</div>';
-        // console.log('-', _images[i][2][0], _images[i][2][1]);
+        if (i == 0) {
+            if (_images[i][3] != '') _tempTitle = _images[i][3];
+            if (_images[i][4] != '') _tempDescription = _images[i][4];
+            text = '<div>' + _images[i][3] + '</div><div style="font-size: 1.2rem">' + _images[i][4].replace(/\n/g, "<br/>") + '</div>';
+        } else {
+            if (_images[i][3] == '' && _images[i][4] == '' && _tempTitle != '' && _tempDescription != '') {
+                text = '<div>' + _tempTitle + '</div><div style="font-size: 1.2rem">' + _tempDescription.replace(/\n/g, "<br/>") + '</div>';
+            } else {
+                text = '<div>' + _images[i][3] + '</div><div style="font-size: 1.2rem">' + _images[i][4].replace(/\n/g, "<br/>") + '</div>';
+            }
+
+        }
+
         var o = {
             src: _images[i][0] + "/" + _images[i][1],
             w: _images[i][2][0],
@@ -56,47 +69,10 @@ var buildGallery = function (_images, type) {
 
     gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, gallery_options);
 
-
-    gallery.listen('beforeChange', function () {
-        // console.log(gallery.currItem.container.parentNode.style.transform);
-        // gallery.currItem.container.parentNode.style.transform = 'translate3d(0, 0, 0)';
-        // console.log(gallery.currItem.container.parentNode.style.transform);
-    });
-
-    gallery.listen('afterChange', function () {
-        // console.log(gallery.currItem.container.parentNode.style.transform);
-        // console.log(gallery.currItem.container.parentNode)
-
-        // if (type == 'initial' && autoSlide) {
-        //     TweenMax.set(gallery.currItem.container, {opacity: 0});
-        //     TweenMax.to(gallery.currItem.container, .5, {opacity: 1, ease: Sine.easeOut});
-        // }
-    });
-
     gallery.listen('preventDragEvent', function (e, isDown, preventObj) {
-        // e - original event
-        // isDown - true = drag start, false = drag release
-
-        // if (autoSlide) stopAutoSlide();
         if (isMobileSelect) hideMobileSelect();
-
-        // Line below will force e.preventDefault() on:
-        // touchstart/mousedown/pointerdown events
-        // as well as on:
-        // touchend/mouseup/pointerup events
         preventObj.prevent = true;
     });
-
-    gallery.listen('imageLoadComplete', function (index, item) {
-        // index - index of a slide that was loaded
-        // item - slide object
-
-        // if (type == 'initial' && index == 1) {
-        //     initialSlideLoaded = true;
-        // }
-
-    });
-
 
     gallery.listen('close', function () {
         TweenMax.set(['html', 'body'], {overflow: 'visible'});

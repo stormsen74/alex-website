@@ -233,9 +233,9 @@ a.pswp__share--download:hover {
   left: 0;
   top: 0;
   height: 44px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
   font-size: 1.2rem;
-  font-weight: 400;
   line-height: 44px;
   opacity: 1;
   padding: 0 31px; }
@@ -257,7 +257,8 @@ a.pswp__share--download:hover {
     color: #BBB; }
 
 .pswp__caption__center {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
   text-align: left;
   margin-left: 20px;
   font-size: 1.6rem;
